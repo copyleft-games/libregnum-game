@@ -45,3 +45,10 @@ Result: a game class selected by the factory, one collision room, an inventory
 rule module, title/play/result transitions and tests proving the door cannot open
 without a key. Include the launch command, controls, data root and save policy.
 Restart must restore the same initial state without stale signal handlers.
+
+## Template timers at the current pin
+The template constructs its timer manager before startup and exposes it as a
+borrowed object through `lrg_game_template_get_timer_manager()`. It advances once
+per host frame before fixed/variable gameplay hooks and clears after state exit
+hooks on shutdown. Do not double-update it. For pause/scale semantics and
+state-owned cancellation, read [gameplay utilities](../../libregnum-skill-gameplay-utilities/SKILL.md).

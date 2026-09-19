@@ -46,3 +46,12 @@ Test a component removed while its target disappears, transform hierarchy change
 and collision-layer filtering. Rendering reads simulation state; it does not apply
 damage or move entities. Content loading and audio have dedicated skills so their
 validation/context requirements are not hidden inside a general ECS recipe.
+
+## Additional focused workflows
+Use [gameplay utilities](../../libregnum-skill-gameplay-utilities/SKILL.md) for
+frame-driven timers, random streams and curve/blackboard inspection;
+[navigation](../../libregnum-skill-game-navigation/SKILL.md) for grid and mesh
+routes; [physics](../../libregnum-skill-game-physics/SKILL.md) for collision
+filters; and [MMO gameplay](../../libregnum-skill-game-mmo/SKILL.md) for shared
+world authority. These require explicit integration, not just constructing a
+standard genre template.

@@ -23,6 +23,11 @@ All project skill names and matching directories start with `libregnum-`
 | YAML definitions and live reload | [Content](skills/libregnum-skill-game-content/SKILL.md) |
 | Music, effects and audio lifetime | [Audio](skills/libregnum-skill-game-audio/SKILL.md) |
 | Tracks, laps and vehicle surfaces | [Racing](skills/libregnum-skill-game-racing/SKILL.md) |
+| Shared-world sessions, replication and reconnect | [MMO gameplay](skills/libregnum-skill-game-mmo/SKILL.md) |
+| Auth, transactional services and recovery | [MMO services](skills/libregnum-skill-game-mmo-services/SKILL.md) |
+| Timers, random previews, curves and inspection | [Gameplay utilities](skills/libregnum-skill-gameplay-utilities/SKILL.md) |
+| Grid/mesh navigation and route editing | [Navigation](skills/libregnum-skill-game-navigation/SKILL.md) |
+| Collision layers and filtered raycasts | [Physics](skills/libregnum-skill-game-physics/SKILL.md) |
 | Missing engine behavior and fixes | [Engine extension](skills/libregnum-skill-engine-extension/SKILL.md) |
 | Download, validate, credit assets | [Intake](skills/libregnum-skill-import-assets/SKILL.md) |
 

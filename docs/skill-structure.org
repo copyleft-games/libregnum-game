@@ -69,3 +69,23 @@ concrete result and verify the failure paths. Walk through each modified skill's
 example against its recipe. Correct contradictions in the entrypoint as well as
 the reference. Keep network research/licensing review distinct from deterministic
 file verification. Do not spawn agents unless explicitly requested.
+
+* Engine refresh: 6750d12
+The audit now covers MMO gameplay/services, gameplay timing and editing,
+navigation and physics queries. Existing tracked source changes were reviewed:
+template timer lifecycle, asset dependency batches, built-in registry catalog,
+save version preflight and their tests/build registration. Unchanged evidence
+files retain their hashes. New recipes record the exact pin and source trails;
+no engine source or gitlink is changed by this skill update.
+
+The authoring layout follows the [[https://www.skillsdirectory.com/docs/skill-file-structure][Skills Directory structure guide]].
+All entrypoints/references remain within the recommended size limits.
+
+** Validation for this refresh
+=make starter-check= passed 27 Python tests and validated 20 skills, six roles,
+local links, credits and two asset manifests. =make engine-contract-check= passed
+126 source records at the current pin. =make test= built the engine/game and
+passed both C starter tests; dependency compiler and introspection warnings
+were emitted. This root target does not execute the full engine test suite.
+Engine unit suites, MMO service/TLS/runtime, PostgreSQL, HA/container and
+GPU/audio-device integration checks were not run for this documentation change.

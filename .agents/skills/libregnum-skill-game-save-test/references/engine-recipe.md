@@ -41,3 +41,13 @@ second-object load failure and save/reload at each progression boundary.
 Example output: inventory saveable plus a migration fixture whose old item IDs
 are mapped explicitly, a failing fixture that leaves the live inventory intact,
 and documentation defining what happens if world-level restore fails.
+
+## Format version preflight at the current pin
+A missing format version means legacy version 1. Present versions must be decimal
+digits in [1, G_MAXUINT]; quoted digits are accepted. Zero, negatives, overflow,
+fractions and malformed values reject as corrupt. The manager rejects a newer
+format with `LRG_SAVE_ERROR_VERSION_MISMATCH` before loading any saveable.
+That preflight does not make later saveable loading transactional. Test the
+future-version file and live state both remain unchanged; older-version data
+still needs the game's migration logic. Inspect `test_save_version_validation`
+and `test_save_version_compatibility` in the linked save tests.

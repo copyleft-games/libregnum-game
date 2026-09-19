@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "engine_commit": "e3e32cc9b593578348dbf4df7123b0be9cfe3c4f",
+  "engine_commit": "6750d12e3102ad1b263828705695c8a750cd7fc1",
   "records": [
     {
       "skill": "libregnum-skill-game-bootstrap",
@@ -11,7 +11,7 @@
         "create_initial_state",
         "register_types"
       ],
-      "sha256": "71c2d8a453a319aa7539890087e07c34dcfef103b96699436f10b45bf281386d"
+      "sha256": "b69d9ae33ee5514a065fe4c72a05bd5891ce2f5396e0c8af4676c573757c484b"
     },
     {
       "skill": "libregnum-skill-game-bootstrap",
@@ -21,7 +21,7 @@
         "lrg_input_manager_poll",
         "lrg_audio_manager_update"
       ],
-      "sha256": "be35ee61920a94b9c6bafe62b8a225d99def7dc5ad9647a6931347522142ae60"
+      "sha256": "bc8a890423b6a58b6284286d8749095937282cba7da0f6a32703ba153629d268"
     },
     {
       "skill": "libregnum-skill-game-bootstrap",
@@ -29,7 +29,7 @@
       "symbols": [
         "test_game_template_input_frame"
       ],
-      "sha256": "587a1c17e8ff11f41d8f74aa57151aca3b8da864f5403384c4d4b2c2eedc4d19"
+      "sha256": "03743be2061d426997be645d1aac6a61cba595155f7a4c470e2281db2889fd83"
     },
     {
       "skill": "libregnum-skill-game-platformer",
@@ -307,7 +307,7 @@
         "lrg_save_manager_register",
         "lrg_save_context_enter_section"
       ],
-      "sha256": "87f1a76666c7d2c913eb682385464bd4b148091f01ccea3d21861265473c7f32"
+      "sha256": "7bbea876d4fb373f32bf2ed0afde88926a3bbd0d7636778060cbd1511821a68e"
     },
     {
       "skill": "libregnum-skill-game-save-test",
@@ -316,7 +316,7 @@
         "lrg_save_context_set_version",
         "lrg_save_context_has_key"
       ],
-      "sha256": "867dc504da087850eee7c9b577cf47a1b0252913db707ee4204537c2c90b7b54"
+      "sha256": "c792f3b25b9f0a5b6b2320488e7743dc2dd96e84b5e19034385b20bbb2c4c78e"
     },
     {
       "skill": "libregnum-skill-game-save-test",
@@ -324,7 +324,7 @@
       "symbols": [
         "test_saveable_interface"
       ],
-      "sha256": "4755dafd6b621b71464d36f05caabec59ce3f05aa5e5f82a179128c7d5bb00dd"
+      "sha256": "8d71aa38c071a971d35c833f0385920b30dc76acdd5e72ba9bafd90008479d4f"
     },
     {
       "skill": "libregnum-skill-find-2d-assets",
@@ -334,7 +334,7 @@
         "lrg_asset_manager_load_font",
         "lrg_asset_manager_load_sound"
       ],
-      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+      "sha256": "c902a57dd04e83578fbf53517a93905b9ea066f6ee2dd8281f5f57f944c9aad0"
     },
     {
       "skill": "libregnum-skill-find-2d-assets",
@@ -385,7 +385,7 @@
         "lrg_asset_manager_load_asset",
         "lrg_asset_manager_load_object"
       ],
-      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+      "sha256": "c902a57dd04e83578fbf53517a93905b9ea066f6ee2dd8281f5f57f944c9aad0"
     },
     {
       "skill": "libregnum-skill-import-assets",
@@ -461,7 +461,7 @@
       "symbols": [
         "lrg_registry_register"
       ],
-      "sha256": "6691259a68a49fbb89aef6f8ada5a86fc7ee153e00f8471927d1118f0bce24c3"
+      "sha256": "102743394bf4dfd3a1cd8fc79f4fe24f7d85041ee9eef226c61dafd5ae5d6d55"
     },
     {
       "skill": "libregnum-skill-game-content",
@@ -471,7 +471,7 @@
         "lrg_asset_manager_reload_object",
         "lrg_asset_manager_watch_object"
       ],
-      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+      "sha256": "c902a57dd04e83578fbf53517a93905b9ea066f6ee2dd8281f5f57f944c9aad0"
     },
     {
       "skill": "libregnum-skill-game-content",
@@ -506,7 +506,7 @@
         "lrg_asset_manager_load_sound",
         "lrg_asset_manager_load_music"
       ],
-      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+      "sha256": "c902a57dd04e83578fbf53517a93905b9ea066f6ee2dd8281f5f57f944c9aad0"
     },
     {
       "skill": "libregnum-skill-game-audio",
@@ -514,7 +514,7 @@
       "symbols": [
         "lrg_audio_manager_update"
       ],
-      "sha256": "be35ee61920a94b9c6bafe62b8a225d99def7dc5ad9647a6931347522142ae60"
+      "sha256": "bc8a890423b6a58b6284286d8749095937282cba7da0f6a32703ba153629d268"
     },
     {
       "skill": "libregnum-skill-game-audio",
@@ -530,7 +530,7 @@
       "symbols": [
         "lrg_asset_manager_load_asset"
       ],
-      "sha256": "4419cb3f7bfdc4b754411f7ec84efa27fd681e1ae1c64761f42618de38ed03ff"
+      "sha256": "dc4356cac388aeb806412afc24a5d02310c885dafa4389e94a958a9d4b41b037"
     },
     {
       "skill": "libregnum-skill-engine-extension",
@@ -554,7 +554,497 @@
       "symbols": [
         "test-asset-manager"
       ],
-      "sha256": "f32c63aaea87d7ffcfd6eaff8c4d41c03f5b1f4b5222816930f2a4ee1b8bc97e"
+      "sha256": "1127e9bac9a9de24e7edb5033e06152f1691f1e52bc153d8fa5a8443aaf51244"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/mmo/lrg-mmo-realm.h",
+      "symbols": [
+        "lrg_mmo_realm_accept_command"
+      ],
+      "sha256": "6e143f78942f743e8990e194ebd9325856178efe345db370daf2a2c32110560a"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/mmo/lrg-mmo-realm.c",
+      "symbols": [
+        "lrg_mmo_realm_advance"
+      ],
+      "sha256": "c3721008920d8f84ec509ad733c55242a72991ac9d46745e4b909aa0385edccd"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/mmo/lrg-mmo-replicator.h",
+      "symbols": [
+        "lrg_mmo_replicator_build_page"
+      ],
+      "sha256": "e00bd88ac04eb84c345e31587629591c921f7616948a66ea5b3a1c34cdc1e15f"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/mmo/lrg-mmo-replicator.c",
+      "symbols": [
+        "pending_cursor"
+      ],
+      "sha256": "2c36019671428ba25decff9c5b3d0ebee478e65d18d46b9976c6f100e624e57e"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "examples/mmo-simulation.c",
+      "symbols": [
+        "simulate"
+      ],
+      "sha256": "71e6840d219e0c373e19d441b83291fde2a954f8c8667285be25a8b244997d6b"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "examples/mmo-runtime.py",
+      "symbols": [
+        "checkpoint"
+      ],
+      "sha256": "a5384b70d23f2dc51e30d2a0b8f8cbda398595136541bc01898af7020945e00c"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "tests/test-mmo.c",
+      "symbols": [
+        "lrg_mmo_realm_login"
+      ],
+      "sha256": "f8ed9a33e84c7a80bdea42bda67fec81f551f5755452f1232b4af57a09d50e50"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "tests/test-mmo-completion.c",
+      "symbols": [
+        "fair_pages"
+      ],
+      "sha256": "4836b914b1c7680f13de10095c7e4be8c022c6d1e478770f29bbb5bf3faece4e"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "docs/modules/mmo/runtime.org",
+      "symbols": [
+        "DTLS"
+      ],
+      "sha256": "e8c9315349c476908b3d236976c1e96d2938d29776c227ab96476bb28cd6fbda"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-store.h",
+      "symbols": [
+        "lrg_mmo_store_commit_once"
+      ],
+      "sha256": "f78047e12945897a42a68f662490b1df4157d16f5c4e9c6406da2e28bb831163"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-store.c",
+      "symbols": [
+        "G_IO_ERROR_WRONG_ETAG"
+      ],
+      "sha256": "505e6df58e135cedb2db09e9b34d3bac925e5c6569f8f56e2e423f91c211a5e3"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-auth.h",
+      "symbols": [
+        "lrg_mmo_auth_prepare_recovery"
+      ],
+      "sha256": "9ec194575e8653c1c1a2f041a7336b0129943201370c06fc5b7b0106ef0bdd46"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-social.h",
+      "symbols": [
+        "lrg_mmo_social_new"
+      ],
+      "sha256": "f2914586f69e585fc75d424cee82e80ba025f1d79b5b56f50ecd6fd7b518c163"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-market.h",
+      "symbols": [
+        "lrg_mmo_market_new"
+      ],
+      "sha256": "d5c39be2726055e2ff387cf8766a5a093389741b0f7048afd91d7ff4cebeda91"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-matchmaker.h",
+      "symbols": [
+        "lrg_mmo_matchmaker_enqueue_party"
+      ],
+      "sha256": "b3634cbed2abd1d9e0bf085cd706cd87343907708459b56462f6ab60c449bf4b"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-matchmaker.c",
+      "symbols": [
+        "lrg_mmo_matchmaker_take"
+      ],
+      "sha256": "8846e2f202e1307c808eeab8400bb24a61a7931e29031da79e46ecd67571747e"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "src/mmo/lrg-mmo-season.h",
+      "symbols": [
+        "lrg_mmo_season_record"
+      ],
+      "sha256": "788d44cb407f74ffc5a03f319660df7c1ccddf2927780f1544e4c7be4e04e602"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "tests/test-mmo-services.c",
+      "symbols": [
+        "lrg_mmo_store_commit_once"
+      ],
+      "sha256": "d488a8abb5aa9c8f6f16dc2c80d66a586fbcb421d09cddd2d2f84daa45d41e1b"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "tests/test-mmo-runtime.c",
+      "symbols": [
+        "parties"
+      ],
+      "sha256": "627e7352bc171a6496b4912744293de309e47562484e519526cbfac64a735020"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "tests/test-mmo-completion.c",
+      "symbols": [
+        "postgres"
+      ],
+      "sha256": "4836b914b1c7680f13de10095c7e4be8c022c6d1e478770f29bbb5bf3faece4e"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "examples/mmo-admin.py",
+      "symbols": [
+        "smtp"
+      ],
+      "sha256": "85f5d017f7974d65d17c0edd1d8727ee87aa7fd14685962064e3fe2a5cde10e3"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "docs/modules/mmo/runtime.org",
+      "symbols": [
+        "Patroni"
+      ],
+      "sha256": "e8c9315349c476908b3d236976c1e96d2938d29776c227ab96476bb28cd6fbda"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/core/lrg-timer-manager.h",
+      "symbols": [
+        "lrg_timer_manager_reschedule"
+      ],
+      "sha256": "9909cd7423e0d3779493d1a85deda610e1645692958fe93c7a4ca304d9830f10"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/core/lrg-timer-manager.c",
+      "symbols": [
+        "lrg_timer_manager_update"
+      ],
+      "sha256": "a6a17748028879386b3ba37ad399af12cf3fb93136f4a908217e0b8dbf4432da"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/core/lrg-random-stream.h",
+      "symbols": [
+        "lrg_random_stream_copy"
+      ],
+      "sha256": "1f8a9d5b06ab94a73b9c8c5e04362310fb95b7c51cd173fda973729c65a549d7"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/core/lrg-random-stream.c",
+      "symbols": [
+        "lrg_random_stream_advance"
+      ],
+      "sha256": "fdf8c7ae06c65328d191e14cf9402079d93eace0e3e6a1172cd6f2029ea980fb"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/tween/lrg-keyframe-curve.h",
+      "symbols": [
+        "lrg_keyframe_curve_get_key"
+      ],
+      "sha256": "e309c0651d31cea5fc45cff60df27cf485cc21a4a818063b9da0f20af67f5c5f"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/tween/lrg-keyframe-curve.c",
+      "symbols": [
+        "lrg_keyframe_curve_sample"
+      ],
+      "sha256": "ca49817ff1d4690a07142318db8b785b2f75deebe84dd709acc68fd68190c005"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/ai/lrg-blackboard.h",
+      "symbols": [
+        "lrg_blackboard_dup_keys"
+      ],
+      "sha256": "8b78133e43886d12337e5157e65027be703a73f43d82acdc89badb0b5cc90f55"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "src/ai/lrg-blackboard.c",
+      "symbols": [
+        "lrg_blackboard_dup_string"
+      ],
+      "sha256": "a75b1fa9a18c6e805fe63cc43d97c96d3036bd3618380fefdeadb23d8a568c77"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "tests/test-timer-manager.c",
+      "symbols": [
+        "lrg_timer_manager_reschedule"
+      ],
+      "sha256": "6e8c10a694e45b148903bfee4c6c04387b967df87ad67009ddc54fe56b65ac67"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "tests/test-random-stream.c",
+      "symbols": [
+        "lrg_random_stream_restore"
+      ],
+      "sha256": "07b32cc81ae30f0d59dfb8153d854f25d50c9beca09ee1a09b40862cd90202c7"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "tests/test-gameplay-utilities.c",
+      "symbols": [
+        "test_random_copy"
+      ],
+      "sha256": "69660b5a8d641a983e959a7ae7a21d77fef818339d956ce9e7532c98e50acb5a"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "tests/test-keyframe-curve.c",
+      "symbols": [
+        "lrg_keyframe_curve_sample"
+      ],
+      "sha256": "d54c78668b7fc175464de69fceafb970e285d2f339c79ce7a5a1c62740fa33a2"
+    },
+    {
+      "skill": "libregnum-skill-gameplay-utilities",
+      "path": "tests/test-template.c",
+      "symbols": [
+        "test_game_template_timer_lifetime"
+      ],
+      "sha256": "03743be2061d426997be645d1aac6a61cba595155f7a4c470e2281db2889fd83"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-pathfinder.h",
+      "symbols": [
+        "lrg_pathfinder_find_path"
+      ],
+      "sha256": "cbdb51d99131c02882bc33a1417373279a34d88cd70e105b39fad437cd5c7809"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-pathfinder.c",
+      "symbols": [
+        "LRG_PATHFINDING_ERROR_ITERATION_LIMIT"
+      ],
+      "sha256": "c10af48f2574c59f58a62d36bf70a9617fb4bf27eabde8d292644d4090ee1045"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-nav-mesh.h",
+      "symbols": [
+        "lrg_nav_mesh_bake"
+      ],
+      "sha256": "3384a2af663a7d595449b28a5954005b3f17763f1c13eac3923edeb692e9fc3d"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-nav-mesh.c",
+      "symbols": [
+        "lrg_nav_mesh_find_path"
+      ],
+      "sha256": "29b30a2536fd9944798b882ea5e7833baa49f9ce5fc33d1d4020cd281a0b3093"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-path.h",
+      "symbols": [
+        "lrg_path_append_path"
+      ],
+      "sha256": "a53484a9c89da61d00057986f73f2fb5eff029bfb2546ad5a975f0b354040a77"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "src/pathfinding/lrg-path.c",
+      "symbols": [
+        "lrg_path_foreach"
+      ],
+      "sha256": "c3fb2d907e97b223e9baed10bbcd63cab0155813a59651402a6da19897b7b9af"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "tests/test-pathfinding.c",
+      "symbols": [
+        "test_pathfinder_iteration_limit"
+      ],
+      "sha256": "61de64672d4cc8a0b5928769eb2c417dc6b55f97023bfc1de9700286e436473d"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "tests/test-nav-mesh.c",
+      "symbols": [
+        "test_obstacle_corridor"
+      ],
+      "sha256": "98a83b7c64f42b0a002dc6e3bf639a2a848d1d2dd806f6cf053e30ec75c79a21"
+    },
+    {
+      "skill": "libregnum-skill-game-navigation",
+      "path": "tests/test-gameplay-utilities.c",
+      "symbols": [
+        "test_path_append_path"
+      ],
+      "sha256": "69660b5a8d641a983e959a7ae7a21d77fef818339d956ce9e7532c98e50acb5a"
+    },
+    {
+      "skill": "libregnum-skill-game-physics",
+      "path": "src/physics/lrg-rigid-body.h",
+      "symbols": [
+        "lrg_rigid_body_set_collision_mask"
+      ],
+      "sha256": "ed037703043bfa1f8485e137ff88f943d530eb93c6c795f7409dbb840bde81b4"
+    },
+    {
+      "skill": "libregnum-skill-game-physics",
+      "path": "src/physics/lrg-rigid-body.c",
+      "symbols": [
+        "collision_layer"
+      ],
+      "sha256": "c36891c890620a0193228d873c1d2885d8ff2b56ba1224c462da73e11444bed9"
+    },
+    {
+      "skill": "libregnum-skill-game-physics",
+      "path": "src/physics/lrg-physics-world.h",
+      "symbols": [
+        "lrg_physics_world_raycast_filtered"
+      ],
+      "sha256": "14800a4cf76f9ae68bddfc8da6469aaac07e514e43cb4c22c54196a959b13631"
+    },
+    {
+      "skill": "libregnum-skill-game-physics",
+      "path": "src/physics/lrg-physics-world.c",
+      "symbols": [
+        "raycast_impl"
+      ],
+      "sha256": "7ea88d6cebf4decfe55faa4d6375ad8dd31e1d25a8085e2a471490f6360f2e2c"
+    },
+    {
+      "skill": "libregnum-skill-game-physics",
+      "path": "tests/test-physics.c",
+      "symbols": [
+        "test_raycast_filters",
+        "test_collision_filters"
+      ],
+      "sha256": "66fc19479eb2ac83383e7835d754aa34ba0da45b1361cd03ff09382b18ad062c"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "src/core/lrg-registry.c",
+      "symbols": [
+        "lrg_registry_register_builtin"
+      ],
+      "sha256": "0c835f0efaab51bbace9b0162824b2803d0b90576902a8dcb42adac2257bf8ac"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "src/core/lrg-asset-manager.c",
+      "symbols": [
+        "lrg_asset_manager_add_object_dependency"
+      ],
+      "sha256": "dc4356cac388aeb806412afc24a5d02310c885dafa4389e94a958a9d4b41b037"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "tests/test-asset-dependencies.c",
+      "symbols": [
+        "test_diamond",
+        "test_rollback"
+      ],
+      "sha256": "cb2a703e5367bbcc24e945320aab1795ee57ccd30e442ec126529030dd715797"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "examples/mmo-client.py",
+      "symbols": [
+        "argparse"
+      ],
+      "sha256": "f0ec590d7803312f6bc43f881395872dabb344260f791ba6250c7f6d7a63efce"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/net/lrg-net-server.h",
+      "symbols": [
+        "max_peers"
+      ],
+      "sha256": "bef722ced5fdea7cd287fb05fcaf4b6cae45656071a62424cc2054b782ea56f0"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo",
+      "path": "src/mmo/lrg-mmo-datagram.h",
+      "symbols": [
+        "lrg_mmo_datagram_handshake"
+      ],
+      "sha256": "fbf6ef207a59def9ece891e145dac6bdf69ce0a2c313933b3954821c2f6d5069"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "docs/modules/mmo/services.org",
+      "symbols": [
+        "OpenSSL"
+      ],
+      "sha256": "dd189e22f0ca9953a0e1831a251960ee083f79fdcace5694603de73f9162c9f7"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "docs/modules/mmo/completion.org",
+      "symbols": [
+        "LRG_TEST_POSTGRES"
+      ],
+      "sha256": "954d4feb02c80797e0fb307ca3551e9af20deb0ef0a5609196183ee8bce0378f"
+    },
+    {
+      "skill": "libregnum-skill-game-mmo-services",
+      "path": "examples/mmo-runtime.py",
+      "symbols": [
+        "checkpoint"
+      ],
+      "sha256": "a5384b70d23f2dc51e30d2a0b8f8cbda398595136541bc01898af7020945e00c"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "src/audio/lrg-audio-mixer.h",
+      "symbols": [
+        "lrg_audio_mixer_render"
+      ],
+      "sha256": "eac98e68124f070a86d4220d7bd97d5b443e80dac510c998ee0810b7fdeaafe8"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "src/audio/lrg-audio-mixer.c",
+      "symbols": [
+        "lrg_audio_mixer_render"
+      ],
+      "sha256": "4e33f7e6b3110745538ba429245eb86da39f77dc88d2043e058412ef3ae64598"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "tests/test-audio-mixer.c",
+      "symbols": [
+        "test_routing"
+      ],
+      "sha256": "ced8c557534683d8d45f110d3b986b40152a16027ddf838fca1355c4940b37be"
     }
   ]
 }

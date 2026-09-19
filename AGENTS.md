@@ -14,6 +14,11 @@ sub-agent spawning or select a model.
 - ECS/input/UI/audio/YAML: `libregnum-skill-game-systems` and [system recipes](docs/game-systems.org).
 - YAML validation/reload: `libregnum-skill-game-content`; audio lifecycle:
   `libregnum-skill-game-audio`; track progression: `libregnum-skill-game-racing`.
+- Shared-world gameplay: `libregnum-skill-game-mmo`; authentication, transactional
+  storage and recovery: `libregnum-skill-game-mmo-services`.
+- Timers, random streams and editing: `libregnum-skill-gameplay-utilities`;
+  grid/mesh routes: `libregnum-skill-game-navigation`; collision layers and
+  filtered raycasts: `libregnum-skill-game-physics`.
 - Engine gaps: `libregnum-skill-engine-extension`. Inspect the linked source recipe
   before making assumptions about defaults, final types or transfer ownership.
 - Persistence/checks: `libregnum-skill-game-save-test`.

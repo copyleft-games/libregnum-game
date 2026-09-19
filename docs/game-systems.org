@@ -62,3 +62,24 @@ working directory. Dynamic builds need their runtime libraries; =STATIC=1= is a
 linking mode, not a promise of a portable single-file game. Ship asset-specific
 licenses independently of the project's AGPL code license. Measure frame time
 on a target machine and test focus, resize, input reconnect and save permissions.
+
+* New engine workflows
+The engine pin =6750d12= adds the following focused skills. Start with the
+linked recipe and its source/tests before choosing API defaults.
+
+| Task | Skill |
+|------+-------|
+| Authoritative sessions, ticks and replication | [[file:../.agents/skills/libregnum-skill-game-mmo/SKILL.md][MMO gameplay]] |
+| Auth, transactions, parties and recovery | [[file:../.agents/skills/libregnum-skill-game-mmo-services/SKILL.md][MMO services]] |
+| Timers, random previews and editing utilities | [[file:../.agents/skills/libregnum-skill-gameplay-utilities/SKILL.md][Gameplay utilities]] |
+| Grid/mesh navigation and route editing | [[file:../.agents/skills/libregnum-skill-game-navigation/SKILL.md][Navigation]] |
+| Collision layers and filtered raycasts | [[file:../.agents/skills/libregnum-skill-game-physics/SKILL.md][Physics]] |
+
+MMO reference hosts require their additional database/crypto dependencies and,
+for Python hosts, GObject introspection bindings. They are separate from the
+thirteen genre launcher choices. Network/TLS, PostgreSQL and container recovery
+checks are explicit integrations, not part of hermetic =starter-check=.
+
+Definition dependency reloads now validate and publish an entire dependent batch.
+Save format versions are checked before invoking saveables; later load failures
+can still partially apply. See the existing content and save/test recipes.

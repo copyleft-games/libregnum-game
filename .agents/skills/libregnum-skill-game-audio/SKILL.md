@@ -1,6 +1,6 @@
 ---
 name: libregnum-skill-game-audio
-description: Integrate libregnum sound effects and streaming music. Use for audio lifecycle, banks, volume and playback checks.
+description: Integrate libregnum sound effects and streaming music. Use for audio lifecycle, PCM bus mixing, banks, volume and playback checks.
 ---
 
 # Skill: Game Audio

@@ -35,3 +35,22 @@ effects overlap. Imported fonts and audio retain separate licenses if bundled.
 
 Example result: a jump effect triggered once, looped background music, saved
 volume controls and a documented manual device test through pause/resume/restart.
+
+## Headless bus mixing at the current pin
+For CPU PCM mixing use `LrgAudioMixer`, a separate thread-confined object with
+an always-present master bus. `add_bus()` creates a child output;
+`set_bus()` applies post-effect gain/mute, and `set_send()` adds post-fader routing.
+Inspect the header for gain limits and cycle rejection. `play()` copies/converts
+wave samples into an independent voice; the input wave can then be released.
+`render()` advances voices/effects and returns owned float samples (`g_free`).
+Only master output clamps to [-1,1]. Muting still advances voices and effect
+history; pausing a voice freezes its cursor. Stopping a voice leaves effect tails.
+This API does not access an audio device or automatically route AudioManager
+playback: wire the output to a device separately when live sound is required.
+
+Read [the mixer header](../../../../deps/libregnum/src/audio/lrg-audio-mixer.h),
+[implementation](../../../../deps/libregnum/src/audio/lrg-audio-mixer.c) and
+[headless tests](../../../../deps/libregnum/tests/test-audio-mixer.c) before use.
+Example: route weapons into an SFX bus and master, render known PCM and assert
+nested gains, muted cursor advancement and a decaying delay tail numerically.
+Keep the audible playback check separate.
