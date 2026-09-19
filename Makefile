@@ -3,7 +3,7 @@
 #
 # Usage:
 #   make                  - Build libregnum and the game
-#   make game             - Build only the game (libregnum must be built)
+#   make game             - Build game, ensuring engine dependencies are ready
 #   make deps             - Build libregnum and its dependencies
 #   make test             - Build and run the test suite
 #   make run              - Build and run the game
@@ -24,8 +24,8 @@
 include config.mk
 
 # Check dependencies before anything else (skip for bootstrap targets)
-SKIP_DEP_CHECK_GOALS := install-deps help show-config check-deps clean clean-all
-ifeq ($(filter $(SKIP_DEP_CHECK_GOALS),$(MAKECMDGOALS)),)
+SKIP_DEP_CHECK_GOALS := starter-check assets-validate assets-fetch assets-verify assets-credits install-deps help show-config check-deps clean clean-all
+ifneq ($(if $(MAKECMDGOALS),$(filter-out $(SKIP_DEP_CHECK_GOALS),$(MAKECMDGOALS)),all),)
 $(foreach dep,$(DEPS_REQUIRED),$(call check_dep,$(dep)))
 endif
 
@@ -35,7 +35,8 @@ endif
 
 # Game sources (add your .c files here)
 GAME_SRCS := \
-	src/main.c
+	src/main.c \
+	src/game-starter.c
 
 # Header files
 GAME_HDRS := $(wildcard src/*.h src/**/*.h)
@@ -56,7 +57,10 @@ include rules.mk
 # =============================================================================
 
 # Default: build deps then game
-all: deps game
+all: game
+
+# Generated engine headers and libraries must exist before compiling consumers.
+$(GAME_OBJS) $(TEST_OBJS): | deps
 
 # Build libregnum and its dependencies
 deps:
@@ -77,10 +81,10 @@ game: $(OUTDIR)/$(GAME_NAME)$(EXE_EXT)
 run: all
 	$(call print_status,"Running $(GAME_NAME)...")
 	@LD_LIBRARY_PATH=$(LRG_LIBDIR):$(GRAYLIB_LIBDIR):$(YAMLGLIB_LIBDIR) \
-		$(OUTDIR)/$(GAME_NAME)$(EXE_EXT)
+		$(OUTDIR)/$(GAME_NAME)$(EXE_EXT) $(ARGS)
 
 # Build and run tests
-test: game $(TEST_BINS)
+test: starter-check game $(TEST_BINS)
 	@echo "Running tests..."
 	@failed=0; \
 	for test in $(TEST_BINS); do \
@@ -140,8 +144,10 @@ install-deps:
 # Clean (extended to handle deps)
 # =============================================================================
 
-# Override clean-all to also clean libregnum
-clean-all: clean
+# Clean all game configurations and the selected libregnum configuration
+clean-all:
+	$(call print_status,"Cleaning all game builds...")
+	rm -rf $(BUILDDIR)
 	$(call print_status,"Cleaning libregnum...")
 	@$(MAKE) -C $(LIBREGNUM_DIR) clean
 
@@ -154,7 +160,7 @@ help:
 	@echo ""
 	@echo "Build targets:"
 	@echo "  all          - Build libregnum and the game (default)"
-	@echo "  game         - Build only the game (libregnum must be built)"
+	@echo "  game         - Build game, ensuring engine dependencies are ready"
 	@echo "  deps         - Build libregnum and its dependencies"
 	@echo "  test         - Build and run the test suite"
 	@echo "  run          - Build and run the game"
@@ -174,8 +180,38 @@ help:
 	@echo "  GAME_NAME=x   - Set game binary name (default: $(GAME_NAME))"
 	@echo "  PREFIX=path   - Set installation prefix (default: $(PREFIX))"
 	@echo ""
+	@echo "Starter: make run ARGS='--genre top-down'"
+	@echo "  starter-check - Check skills, docs, and asset tooling (Python 3)"
+	@echo "  assets-validate / assets-fetch / assets-verify / assets-credits"
+	@echo ""
 	@echo "Utility targets:"
 	@echo "  check-deps   - Check for required dependencies"
 	@echo "  install-deps - Install build dependencies (Fedora/dnf)"
 	@echo "  show-config  - Show current build configuration"
 	@echo "  help         - Show this help message"
+
+# Starter tooling runs without a compiler, display, or engine build.
+PYTHON ?= python3
+.PHONY: starter-check assets-validate assets-fetch assets-verify assets-credits
+starter-check:
+	$(PYTHON) -m unittest discover -s tests -p 'test_*.py'
+	$(PYTHON) tools/check-starter.py
+	$(PYTHON) tools/assets.py validate
+
+assets-validate:
+	$(PYTHON) tools/assets.py validate
+assets-fetch:
+	$(PYTHON) tools/assets.py fetch $(ASSET_IDS)
+assets-verify:
+	$(PYTHON) tools/assets.py verify
+assets-credits:
+	$(PYTHON) tools/assets.py credits
+
+# Explicit display check, kept out of headless unit tests.
+.PHONY: assets-smoke
+assets-smoke: assets-verify $(OUTDIR)/asset-smoke
+	@LD_LIBRARY_PATH=$(LRG_LIBDIR):$(GRAYLIB_LIBDIR):$(YAMLGLIB_LIBDIR) $(OUTDIR)/asset-smoke
+
+$(OUTDIR)/asset-smoke: tools/asset-smoke.c | deps $(OUTDIR)
+	$(call print_link,"asset-smoke")
+	@$(CC) $(GAME_CFLAGS) -o $@ $< $(GAME_LDFLAGS) $(GAME_LIBS)

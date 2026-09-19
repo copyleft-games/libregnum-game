@@ -37,3 +37,7 @@ g-ir-cpp-*.c
 
 # clangd cache files for lsp
 .cache/
+
+# Isolated task worktrees and Python tooling cache
+/trees/
+__pycache__/

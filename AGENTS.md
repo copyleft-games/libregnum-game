@@ -1,5 +1,34 @@
 # Libregnum Game Template - Project Guide
 
+## Starter Kit Workflow
+
+Start with [getting started](docs/getting-started.org) and [genre recipes](docs/genres.org).
+Read [.agents/README.md](.agents/README.md) to select a focused skill or role.
+Skills live in `.agents/skills/skill-*/SKILL.md`; portable role definitions live
+in `.agents/agents/agent-*/agent.md`. Read the relevant file explicitly when your
+tool does not discover it automatically. These files do not authorize automatic
+sub-agent spawning or select a model.
+
+- New game: `skill-game-bootstrap`, then the matching platformer, top-down,
+  shooter, 3D or strategy skill. The launcher accepts `--genre` and `--list-genres`.
+- ECS/input/UI/audio/YAML: `skill-game-systems` and [system recipes](docs/game-systems.org).
+- Persistence/checks: `skill-game-save-test`.
+- Public/free assets: `skill-find-2d-assets` or `skill-find-3d-assets`, followed
+  by `skill-import-assets`. Follow [asset conventions](docs/assets.org).
+- Keep third-party media under `data/assets/<pack>/` with a manifest entry,
+  SHA-256 pins, license text, provenance and generated credits. Preserve model
+  sidecar paths. Never assume that free download means permission to ship.
+- Prefer verified existing engine APIs. The model loader is
+  `grl_model_new_from_file`; this engine revision has no asset-manager model cache.
+  Check the implementation before adding a new capability. Commit any necessary
+  engine changes in their submodule before recording the parent gitlink.
+- Run `make starter-check` for Python intake tests, skill/agent structure, local
+  links and credits. Run `make test` for C behavior too. `make assets-verify`
+  checks installed packs; `make assets-smoke` is an explicit graphics-context
+  check. Keep network and display-dependent checks out of ordinary unit tests.
+- Update org-mode documentation alongside behavior; report checks that did not
+  run. Preserve unrelated work and never push without a user instruction.
+
 ## Project Overview
 
 This is a template repository for building games with libregnum, a GObject-based game engine. The engine is included as a git submodule at `deps/libregnum/`.
@@ -13,11 +42,13 @@ libregnum-game/
 ├── Makefile            # Root build orchestration
 ├── config.mk           # Build configuration
 ├── rules.mk            # Build rules and helpers
-├── src/                # Game source files
+├── src/                # Game source files (entry point + genre factory)
 │   └── main.c          # Entry point (modify this)
 ├── tests/              # Unit tests (test-*.c, auto-discovered)
 ├── data/               # Game data (YAML configs, textures, sounds)
 ├── docs/               # Game documentation
+├── .agents/            # Game skills and portable specialist roles
+├── tools/              # Asset intake, validation and GPU smoke check
 └── deps/
     └── libregnum/      # Engine library (git submodule)
         ├── src/        # 55+ engine modules, 310+ headers
@@ -33,10 +64,12 @@ libregnum-game/
 
 ```bash
 make              # Build deps + game
-make game         # Build only game (deps must exist)
+make game         # Build game and ensure engine prerequisites
 make deps         # Build only libregnum
 make run          # Build and run
-make test         # Build and run tests
+make test         # Run C and Python tests
+make starter-check # Python tooling, docs and skill checks
+make assets-smoke # Explicit PNG/GLB import check (needs display)
 make clean        # Clean game artifacts
 make clean-all    # Clean everything including libregnum
 make help         # Show all targets
@@ -141,7 +174,7 @@ main(int argc, char *argv[])
 
 ```c
 /* GObjects: use g_object_unref or g_autoptr */
-g_autoptr(LrgEngine) engine = lrg_engine_get_default();
+LrgEngine *engine = lrg_engine_get_default(); /* borrowed singleton */
 
 /* GBoxed types from graylib: use *_free(), NOT g_object_unref() */
 g_autoptr(GrlColor) color = grl_color_new(255, 100, 100, 255);

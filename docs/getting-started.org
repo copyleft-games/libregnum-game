@@ -1,0 +1,65 @@
+#+title: Start a game with libregnum
+
+* First launch
+Initialize the pinned engine with =git submodule update --init --recursive=.
+Run =make check-deps=, then =make -j8= and =make run= from the project root.
+The Fedora package list is in README.md; installing packages is a separate host
+administration step. Python 3 is needed for the starter tools, not the game.
+
+=make run ARGS='--genre top-down'= selects a different engine template.
+=build/release/libregnum-game --list-genres= lists thirteen choices without a
+window. =--help= and =--version= also work without a display. These are small
+engine-template launchers: they demonstrate the engine defaults, not thirteen
+finished games. Some templates require a game-specific world and UI before
+there is anything useful to play. Read [[file:genres.org][the genre guide]] for the next step.
+
+* Make it yours
+1. Set =GAME_NAME= and the version components in config.mk.
+2. Choose the closest template in src/game-starter.c. Replace its factory branch
+   with your own subclass (or compose a final template with game states).
+3. Add source files explicitly to =GAME_SRCS= in Makefile. Put reusable rules in
+   modules separate from drawing, so tests run without a window.
+4. Write the smallest complete loop: start, play, lose/win, restart. Build one
+   room or track before adding procedural generation or a content pipeline.
+5. Add =tests/test-*.c= for game rules; =make test= runs these with GTest plus
+   the Python starter checks. =make starter-check= needs no graphics toolchain.
+6. Record controls, rules, save schema, content conventions, and manual checks
+   under docs/ in org-mode. Use [[file:game-brief.org][the game brief]] as a starting document.
+
+The root build orders engine generation before consumer compilation. =make game=
+also ensures dependencies are ready. For a fast game-only engine build use
+=make -j8 BUILD_GIR=0 BUILD_EXAMPLES=0 BUILD_TESTS=0=; this disables engine
+auxiliary targets, not the root =make test= runner. Run the normal build when
+checking GIR or the engine examples. Keep build and clean commands sequential.
+
+* Ownership and lifecycle
+Templates own engine startup, window creation, frame dispatch and shutdown.
+Do not start a second engine loop. Read the actual vfunc declarations in
+=deps/libregnum/src/template/lrg-game-template.h= and your chosen template.
+Chain parent lifecycle and input hooks where the parent implements behavior.
+Load GPU assets only after the graphics context exists, on its owning thread.
+Release game-owned GPU objects in shutdown before context destruction. Load
+sound after the audio device is initialized. Never perform downloads in a frame.
+
+=grl_model_new_from_file= returns an owned GObject. Asset-manager load methods
+return borrowed cached objects; retain a reference only if you need independent
+ownership. Math/color boxed objects use their matching free functions, not
+=g_object_unref=. Check each header's transfer annotation rather than guessing.
+
+* Assets and working directory
+See [[file:assets.org][asset intake and loading]]. =make run= launches from the repository root;
+examples use paths under =data/assets/=. If distributing or launching elsewhere,
+resolve a data root explicitly from your install/bundle layout and pass that
+root into game code. Do not assume the working directory is the executable's
+directory. The existing =make install= installs only the binary: a shipping
+package must also include game data, credits and runtime libraries. Build rpaths
+are development checkout paths, not a portable release package.
+
+* Checks before sharing
+Run =make starter-check=, =make test= and =make assets-verify= after fetching
+assets. Build with =DEBUG=1= for diagnosis; =ASAN=1 UBSAN=1= require debug mode.
+Use a fresh build when changing sanitizer or linking options. Exercise a real
+window and audio device separately: movement, focus loss, pause/resume, resize,
+controller disconnect, asset rendering, save/load and restart. Headless tests do
+not validate GPU imports or the feel of a game. Test Windows and static packaging
+in their target environments before describing them as supported releases.

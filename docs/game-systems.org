@@ -1,0 +1,64 @@
+#+title: Implementing common game systems
+
+* Game states, input and UI
+Use =LrgGameStateManager= for title/play/pause/results transitions. Read
+=deps/libregnum/src/gamestate/lrg-game-state-manager.h= before pushing states:
+ownership transfer is part of the API. Pause gameplay simulation without breaking
+UI input or audio policy. Test repeated pause/resume and restart, including
+focus loss. Keep action names stable in =LrgInputMap=; bind keyboard, mouse and
+controller to actions rather than duplicating game rules in device branches.
+Build a readable HUD at the minimum window size and virtual resolution. Support
+keyboard navigation, controller focus and visible disabled-action explanations.
+
+* ECS and collision
+Inspect =deps/libregnum/src/ecs/= for World, GameObject and component ownership.
+Keep transforms, colliders and rendering in one coordinate convention. Give each
+component a single responsibility and avoid retaining raw pointers across object
+removal. Test component removal, destroyed targets, collision layers and spawn
+failure. Use a deterministic fixed timestep for simulation where needed; drawing
+must not change game state. Do not assume the 2D collision system supplies a full
+3D rigid-body solution merely because both APIs mention physics.
+
+* Definitions, tilemaps and content
+Use =LrgRegistry= and =LrgDataLoader= for typed YAML definitions. Register types
+before loading them; follow a real example/schema under the pinned engine's
+=data/= and =examples/= directories. Validate missing keys, wrong scalar types,
+unknown IDs and references. Keep stable IDs separate from translated names.
+For maps, define tile size, origin, layer order and collider layers before
+importing an atlas. Keep game definitions outside third-party immutable asset
+packs so tuning them does not invalidate asset verification.
+
+* Saving and progression
+Implement the =LrgSaveable= interface for persistent state and use =LrgSaveManager=
+for save orchestration. Check headers and =deps/libregnum/tests/test-save.c=
+for the actual contract. Version the save schema from the first milestone.
+Persist stable IDs and rule state, not GObject pointers or GPU handles.
+Test fresh start, save/reload equivalence, missing/corrupt files, migration and
+unknown content IDs. Keep saves in a user data directory, never in installed
+=data/assets/=. Use temporary directories for tests. Protect against applying
+rewards twice when loading or returning from an offline session.
+
+* Sound and animation
+Initialize the device before loading audio. Cache short sound effects; stream
+music and update streaming according to its API. Provide master/music/effects
+volume and mute. Do not allocate or decode per frame. Release owned sounds
+before device shutdown. For sprites, define frame dimensions, timing and pivot;
+for skeletal models, validate clip names, rig compatibility and root motion.
+Test state transitions independently, then observe a real device/context.
+
+* Debugging and extending the engine
+Start with a reproducible command, build flags, seed and small scene. Check
+=deps/libregnum/AGENTS.md= and the implementation, not just the API inventory:
+some subsystems have stubs or limited backends. Use logs and assertions at the
+owning layer. Run =make DEBUG=1 test= and relevant engine tests; sanitizer builds
+need fresh objects for their flags. MCP and Steam are opt-in and must be tested
+before being relied upon. Keep game policy in this repository and reusable
+capabilities in libregnum. Document the exact error and fixture if a new asset
+loader is necessary, then add the owning dependency tests and docs.
+
+* Release practice
+Verify a fresh clone build, data/credit inclusion and launch from an arbitrary
+working directory. Dynamic builds need their runtime libraries; =STATIC=1= is a
+linking mode, not a promise of a portable single-file game. Ship asset-specific
+licenses independently of the project's AGPL code license. Measure frame time
+on a target machine and test focus, resize, input reconnect and save permissions.

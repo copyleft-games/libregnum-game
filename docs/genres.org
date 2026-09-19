@@ -1,0 +1,83 @@
+#+title: Genre recipes
+
+* Choosing a template
+The launcher accepts the names below. Read the matching header under
+=deps/libregnum/src/template/= and the referenced example before implementing
+hooks. Final classes cannot be subclassed: compose them with game states or use
+a derivable parent. Do not copy an entire large demo without understanding its
+resource ownership and state transitions.
+
+| Launcher name | Engine template | Working example under deps/libregnum/examples/ |
+|---------------+-----------------+------------------------------------------------|
+| platformer | LrgPlatformerTemplate | game-platformer-demo.c |
+| top-down | LrgTopDownTemplate | game-top-down-demo.c |
+| shooter | LrgShooter2DTemplate | game-shmup-demo.c (specialized child) |
+| twin-stick | LrgTwinStickTemplate (final) | use shooter parent hooks and input maps |
+| shmup | LrgShmupTemplate (final) | game-shmup-demo.c |
+| tycoon | LrgTycoonTemplate | game-micro-tycoon.c |
+| racing-2d | LrgRacing2DTemplate | inspect its header and implementation |
+| fps | LrgFPSTemplate | game-fps-demo.c |
+| third-person | LrgThirdPersonTemplate | game-third-person-demo.c |
+| racing-3d | LrgRacing3DTemplate | game-racing-3d-demo.c |
+| deckbuilder-combat | LrgDeckbuilderCombatTemplate (final) | game-deckbuilder-combat.c |
+| deckbuilder-poker | LrgDeckbuilderPokerTemplate (final) | game-deckbuilder-poker.c |
+| idle | LrgIdleTemplate | game-chocolate-chip-clicker.c |
+
+* Platformer: one room, one exit
+Use the platformer collision hooks to answer horizontal and vertical movement;
+the template's movement helpers are not a substitute for your level geometry.
+Specify whether sprite coordinates denote feet or top-left. Keep collision
+bounds independent of decorative pixels. Implement a spawn, safe floor, jump,
+collectible and exit. Test edge contacts, ceiling collision, coyote time, buffered
+jumps and respawn. Check camera follow and pixel filtering at multiple sizes.
+
+* Top-down adventure and RPG
+Start with walkable tiles, one interactable NPC and a door. Keep navigation,
+colliders and drawing in the same map coordinate convention. Compose dialog,
+quest and inventory systems using stable IDs. Test blocked movement, diagonal
+speed, interaction range, a full inventory and quest completion across reload.
+Use the same state transitions for keyboard and controller interactions.
+
+* Shooter, twin-stick and shmup
+Choose aiming direction (mouse/stick), camera scrolling and projectile ownership
+before building weapons. Use collision layers and a single damage/score path.
+Separate enemy spawn schedules from render frames and expose a deterministic
+seed. Test projectile expiry, repeated hit prevention, death/restart, controller
+dead zones and wave completion. Pool only after measuring allocation pressure.
+
+* First/third person 3D
+Start with a floor, player capsule, one imported prop and a camera. Document
+meters-per-unit, axes, collider dimensions and eye height. Verify mouse capture
+and focus restoration before combat. Third-person cameras need obstruction
+handling; a visually correct mesh is not collision geometry. Validate glTF/OBJ
+materials and scale on the GPU. Test grounding, slopes, near clipping and
+restart. Use animation clips only after checking skeleton compatibility.
+
+* Racing in 2D/3D
+Separate acceleration, steering, braking and traction rules from camera motion.
+Create a loop with ordered checkpoints. A lap counts only after all required
+checkpoints in order; crossing the start backwards must not award a lap.
+Test checkpoint skipping, reset position, reverse driving, off-track recovery
+and fixed-step behavior. 3D tracks additionally need surface contacts and
+stable camera orientation. Document speed and distance units.
+
+* Tycoon and management
+Prototype one producer, consumer and buildable tile. Use resource/economy and
+building modules; keep simulation time independent of frame rendering. Placement
+must validate occupancy and cost atomically. Test insufficient resources, occupied
+tiles, cancellation/refunds, pause/speed changes and a save/load round trip.
+Display costs and errors before committing an irreversible game action.
+
+* Deckbuilders and card games
+Choose combat or poker rules and compose the final template. Model cards with
+stable IDs and separate definitions from run state. Use seeded shuffles and one
+owner for each card zone. Test energy/cost, hand limits, empty draw/discard,
+reshuffle, effect ordering, scoring ties and replay consistency. Provide mouse,
+keyboard and controller selection plus readable card text at minimum resolution.
+
+* Idle/incremental
+Start with one currency, generator and upgrade. Use the idle/big-number systems
+instead of unbounded float accumulation. Specify offline time caps, rounding,
+clock rollback behavior and prestige reset scope. Test purchase affordability,
+large values, idempotent load, offline awards once per resume, and save migration.
+Avoid tying production to how often a window draws.

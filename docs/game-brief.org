@@ -1,0 +1,25 @@
+#+title: Game brief
+
+* Identity
+Choose a name, one-sentence premise, target platforms and intended audience.
+State the genre, perspective, session duration and supported input devices.
+
+* First playable
+Describe one complete player loop and an observable win/loss or progression
+condition. Set a small first milestone with a single room, encounter or track.
+List what will be deferred until this loop is enjoyable.
+
+* Technical choices
+Record the chosen template, the game state transitions, the coordinate system,
+virtual resolution or world scale, and the separation between rules and rendering.
+Define save versioning and deterministic seed handling where applicable.
+
+* Art and sound budget
+Record palette, sprite dimensions/pivot or model units/orientation, animation
+names, triangle/texture budgets and audio loudness targets. Link every imported
+pack to data/assets/manifest.json and describe transformations in its changes.
+
+* Completion criteria
+Specify rule tests, display/audio checks, accessibility needs and target-device
+performance measurements. Define the exact files in the distributable, including
+asset licenses and credits, and a clean-machine launch procedure.

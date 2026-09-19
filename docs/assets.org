@@ -1,0 +1,123 @@
+#+title: Asset discovery, intake and loading
+
+* Convention
+Keep each pack under =data/assets/<provider-pack>/=. Use =textures/= for 2D,
+=models/= for 3D, =audio/= for sound and =fonts/= for fonts. Preserve relative
+model sidecar paths (textures, .bin, .mtl). Do not flatten model directories.
+The checked-in manifest is the source of truth. Imported packs contain
+=LICENSE.txt= and =provenance.json= as well as the selected files. The starter
+includes one PNG tile and one GLB barrel with its texture; these are deliberately
+small pipeline samples, not a complete art direction.
+
+* Find assets
+As checked on 2026-09-18, use these primary sources as starting points:
+
+| Source | Best fit | License guidance |
+|--------+----------+------------------|
+| [[https://kenney.nl/assets][Kenney]] | 2D/UI, low-poly 3D, audio | [[https://kenney.nl/support][Asset-page downloads are CC0]] |
+| [[https://quaternius.com/][Quaternius]] | Characters, animation, low-poly props | [[https://quaternius.com/faq.html][Read the FAQ and the particular pack terms]] |
+| [[https://polyhaven.com/][Poly Haven]] | PBR textures, HDRIs, realistic models | [[https://polyhaven.com/license][Assets are CC0; site/API terms are separate]] |
+| [[https://opengameart.org/][OpenGameArt]] | Sprites, tiles, sound and music | [[https://opengameart.org/content/faq][Licenses vary by submission; inspect each file]] |
+
+Search the creator site for the subject, dimension, style and format, e.g.
+=site:kenney.nl/assets dungeon 16x16= or =site:quaternius.com animated character=.
+Compare at least a few candidates by license evidence, required attribution,
+format, dimensions/triangle count, style consistency and download size. Record
+why the chosen pack fits. Verify the actual download's license; a search snippet
+or the word "free" is insufficient. Do not infer commercial-use permission from
+price or public availability. Prefer CC0; CC-BY needs complete credit and changes.
+This intake tool accepts CC0-1.0 and CC-BY-3.0/4.0. Other licenses require a
+separate reviewed workflow rather than relabeling them to pass validation.
+Do not scrape around login gates, payment or rate limits. Use the provider's
+current supported download method. No provider account is needed for the samples.
+
+* Reproduce the samples
+Run from the repository root:
+#+begin_src sh
+make assets-validate
+make assets-fetch
+make assets-verify
+make assets-credits
+make assets-smoke
+#+end_src
+=assets-fetch= makes HTTPS requests only for absent packs. Existing packs must
+match exactly; altered packs are preserved and cause failure. The download and
+each selected output are SHA-256 checked before publishing a new pack directory.
+A provider changing a file at the same URL causes a visible failure. Re-review
+the new content/license and make an explicit manifest update; do not bypass hashes.
+
+=assets-smoke= requires a working display/OpenGL context. It loads the sample
+PNG through LrgAssetManager and GLB through GrlModel, then releases resources
+before destroying the window. It verifies import, not material appearance,
+collision, animation or visual quality. A headless machine can use
+=xvfb-run -a make assets-smoke= when Xvfb and software OpenGL are installed.
+
+* Register a new pack
+1. Read its asset page, license and readme. Download to a temporary location,
+   not directly over game data. Inspect the archive members before choosing files.
+2. Copy a pack object from =data/assets/manifest.json=. Set a unique lowercase
+   hyphenated =id=, =author=, complete =attribution=, =source_url=, =license=,
+   =license_url=, verbatim =license_text= and a truthful =changes= description.
+3. Record an HTTPS =download_url=, =format= (=zip= or =file=), and the lowercase
+   SHA-256 of the complete download in =sha256=. Use =sha256sum path/to/download=.
+4. For each selected file, record =source= (exact ZIP member name), =path=
+   (destination relative to the pack) and =sha256= of its uncompressed bytes.
+   For a direct file, include exactly one entry; =source= is its descriptive
+   filename. Include all required textures/materials/buffers. Prefer embedded
+   GLB when preserving a multi-file glTF export would be cumbersome.
+5. Run =python3 tools/assets.py validate=. For an already-downloaded archive use
+   =python3 tools/assets.py fetch my-pack --from-file /path/to/download.zip=.
+   This uses the same checks and does not need the network. Alternatively run
+   =make assets-fetch ASSET_IDS=my-pack=.
+6. Run =make assets-verify=, exercise the loader in a graphics/audio context,
+   and inspect the result in-game at intended scale. Generate credits with
+   =python3 tools/assets.py credits > data/assets/CREDITS.md= and commit the
+   manifest, selected files, provenance, licenses and credits together.
+
+The tool downloads at most 256 MiB per pack and rejects archives expanding beyond
+512 MiB. It rejects traversal, duplicate ZIP members, symlinks, duplicate pack
+IDs, output collisions, unknown IDs, missing metadata and invalid hashes. It
+never executes files from a pack or extracts unselected members. Imports are
+atomic per pack, not across a batch: earlier successful packs remain if a later
+one fails. Use one importer at a time in a trusted checkout. It does not audit
+malicious media parsers or decide whether a contributor owns an asset.
+
+Generated credits list every manifest pack, including optional unfetched ones.
+Verification requires all packs. If choosing not to ship a sample, remove its
+manifest entry and its known files intentionally, regenerate credits and adjust
+the smoke example. Do not use a blanket cleanup over user assets.
+
+* Runtime formats and APIs
+These capabilities were checked against the pinned headers and implementations;
+raylib format support is build-dependent. See
+=deps/libregnum/deps/graylib/deps/raylib/src/config.h= for enabled formats.
+
+| Content | Prefer | Runtime entry point |
+|---------+--------+---------------------|
+| Sprites/tiles/UI | PNG | lrg_asset_manager_load_texture |
+| Short effects | WAV | lrg_asset_manager_load_sound |
+| Streaming music | OGG | lrg_asset_manager_load_music |
+| Fonts | TTF | lrg_asset_manager_load_font |
+| Static 3D | GLB/glTF or OBJ + MTL/textures | grl_model_new_from_file |
+| Animated 3D | Supported glTF/IQM export | inspect grl-model-animation.h and skeleton compatibility |
+| Game definitions | Engine-schema YAML | LrgDataLoader / asset-manager definitions |
+
+There is no model cache method on LrgAssetManager in this revision. The public
+GrlModel loader in the engine's graylib dependency already loads standard model
+files directly; use it with an explicit full path and own the returned GObject.
+Do not invent =lrg_asset_manager_load_model=. The working C example is
+=tools/asset-smoke.c=. Asset-manager texture/audio loads are borrowed references.
+
+Blender, FBX and Photoshop files are authoring sources: export a supported format.
+Record Blender/tool version, export settings, units, axes, texture packing and
+transform changes. Keep originals outside runtime data unless deliberately
+shipping source art. Test glTF extensions, PBR channels and animation clips:
+format recognition does not guarantee every exporter feature. Convert textures
+to PNG; use point filtering for pixel art and an explicit atlas gutter. Tile
+maps need the engine's tilemap schema; an image atlas alone is not a level.
+
+For a format gap, first reproduce it with a small licensed fixture and inspect
+the pinned loader. Extend libregnum only for a missing reusable engine capability;
+add header/source/build registration, ownership/error tests and a real import
+check. Commit dependency changes in the owning submodule before recording the
+new gitlink in this repository. Never silently edit a dependency without a commit.

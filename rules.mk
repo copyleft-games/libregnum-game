@@ -112,10 +112,6 @@ clean:
 	$(call print_status,"Cleaning $(BUILD_TYPE) build...")
 	rm -rf $(BUILDDIR)/$(BUILD_TYPE)
 
-clean-all:
-	$(call print_status,"Cleaning all builds...")
-	rm -rf $(BUILDDIR)
-
 # =============================================================================
 # Installation Rules
 # =============================================================================

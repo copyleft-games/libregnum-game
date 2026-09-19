@@ -323,14 +323,14 @@ else
     ifeq ($(TARGET_PLATFORM),windows)
         # Windows: DLLs must be in PATH or same directory
     else
-        GAME_LDFLAGS += -Wl,-rpath,'$$ORIGIN/../../$(LRG_LIBDIR)'
-        GAME_LDFLAGS += -Wl,-rpath,'$$ORIGIN/../../$(GRAYLIB_LIBDIR)'
-        GAME_LDFLAGS += -Wl,-rpath,'$$ORIGIN/../../$(YAMLGLIB_LIBDIR)'
+        GAME_LDFLAGS += -Wl,-rpath,$(LRG_LIBDIR)
+        GAME_LDFLAGS += -Wl,-rpath,$(GRAYLIB_LIBDIR)
+        GAME_LDFLAGS += -Wl,-rpath,$(YAMLGLIB_LIBDIR)
     endif
     ifeq ($(MCP),1)
         GAME_LDFLAGS += -L$(MCP_GLIB_DIR)/build
         ifneq ($(TARGET_PLATFORM),windows)
-            GAME_LDFLAGS += -Wl,-rpath,'$$ORIGIN/../../$(MCP_GLIB_DIR)/build'
+            GAME_LDFLAGS += -Wl,-rpath,$(MCP_GLIB_DIR)/build
         endif
     endif
     GAME_LIBS := -llibregnum -lgraylib -lyaml-glib -lm

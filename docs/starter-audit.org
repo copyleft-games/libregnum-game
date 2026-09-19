@@ -1,0 +1,64 @@
+#+title: Starter kit evaluation
+
+* Scope and baseline
+Evaluated the template at 60692fe with libregnum pinned at
+e3e32cc9b593578348dbf4df7123b0be9cfe3c4f. The original repository provided a
+platformer constructor, three-file Make build and empty data/docs/tests folders.
+It had no local skills/roles, reproducible media intake or game test cases.
+
+* Changes
+- Added a checked factory/CLI for thirteen genre templates. This supplies an
+  entry point and routing to engine examples, not complete games of every genre.
+- Added org guides for first playable scope, genre-specific checks, common engine
+  systems, asset discovery/intake/loading and a game brief.
+- Added eleven focused skills and six portable role documents under .agents/;
+  root AGENTS.md routes work to them without assuming tool-specific registration.
+- Added a standard-library Python importer with source/license evidence, archive
+  and member SHA-256 pins, selected ZIP/direct-file intake, bounded size,
+  traversal/symlink protection, per-pack atomic publication and verification.
+- Included a small CC0 Kenney tile and barrel with license/provenance and generated
+  credits. A real import revealed the GLB's external texture dependency; the
+  manifest preserves that sidecar path.
+- Added hermetic importer and genre-factory tests, metadata/link/credit validation,
+  and an explicit graphics-context import check.
+- Ordered engine build/generation before game/test compilation to fix parallel
+  clean builds. Corrected development rpaths that had prepended $ORIGIN to an
+  already absolute library path. Removed the duplicate clean-all recipe warning.
+
+* Engine capability assessment
+The pinned LrgAssetManager loads textures/fonts/audio and typed definitions.
+Its load results are borrowed from the cache. Graylib's public
+=grl_model_new_from_file= loads standard model files and returns an owned
+GObject; the game already has access to this API via the engine include stack.
+The pinned raylib enables PNG, glTF, OBJ, IQM, WAV and OGG format paths.
+Therefore no engine feature change is needed for the chosen runtime formats.
+The explicit PNG/GLB check validates the path with real downloaded files.
+
+There is no LrgAssetManager model cache in this revision. Blender/FBX authoring
+files need export; glTF recognition does not guarantee every material extension
+or animation rig. Model collision and visual budgets remain game responsibilities.
+Public asset sites are discovery sources, not proof that every particular upload
+has an appropriate license. See [[file:assets.org][the asset guide]] for sources and evidence.
+
+* Verification boundary
+=make starter-check= runs hermetic Python regressions and checks all skill/agent
+structure, local document links and generated credits. =make test= additionally
+executes GTests for all thirteen factory branches and invalid input. The smoke
+program loads the pinned PNG and GLB plus its external texture in a real graphics
+context (Xvfb/software OpenGL is sufficient). It does not assess visual style,
+audio playback or animated rigs. Asset intake has no network calls in unit tests.
+
+The dependency build emits pre-existing graylib duplicate-rule/input declaration,
+yaml-glib deprecation/unused-parameter, raylib model-loader and engine GIR
+annotation warnings. Starter
+C code is compiled with -Wall -Wextra -Werror. Those dependency diagnostics are
+not silently suppressed or described as a warning-free engine build.
+
+* Remaining project responsibilities
+Choose a genre and build a game-specific world, states and interface. Engine
+examples and type inventories contain broader functionality than this starter
+verifies; inspect implementations before relying on optional/stubbed systems.
+Shipping requires a data/runtime-library bundle and launch tests from arbitrary
+working directories; the install target currently installs only the binary.
+Windows, static shipping, Steam, MCP, audio hardware, full engine regression
+suites and interactive playtesting need their own target-specific checks.
