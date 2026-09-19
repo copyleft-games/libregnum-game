@@ -13,11 +13,17 @@ Saving, migration, regression tests, deterministic replays or release preparatio
 
 ## Prerequisites
 
-A checkout of this repository and its pinned engine; see README.md for build
-packages. Asset search needs browsing/network access; intake needs Python 3.
+A checkout with pinned engine sources and a game brief. See README.md for C
+build packages. Python 3 runs starter/source checks; runtime tests require the
+selected engine build and device-dependent checks need their graphics/audio context.
 Load only the references relevant to the task. Paths in commands are repository-relative.
 
 ## Instructions
+
+First read [the engine recipe](references/engine-recipe.md) for this task. It
+links the inspected headers, implementations and tests, identifies defaults and
+missing game behavior, and gives concrete failure cases. Recheck those sources
+when the pinned engine changes. All commands run from the repository root.
 
 1. Read [game systems](../../../docs/game-systems.org) and save module headers plus their tests. Identify persistent state, stable IDs and the save version.
 2. Implement persistence through LrgSaveable/LrgSaveManager using their actual contracts. Store user saves outside game assets.
@@ -26,13 +32,23 @@ Load only the references relevant to the task. Paths in commands are repository-
 5. Run `make test`, then selected debug/sanitizer builds with fresh objects. Run `make assets-verify`; keep display/network checks explicit.
 6. Document manual focus/resize/reconnect/save-permission checks and the package contents. Report every skipped target or unavailable dependency.
 
+## Verification
+
+Run `make starter-check` after changing this bundle. Run
+`make engine-contract-check` with initialized dependencies to check the recorded
+source symbols against the pin. For implementation changes, run the owning C
+tests and any required display/audio checks from the recipe. Report skipped
+checks explicitly; source-symbol checks do not prove runtime behavior.
+
 ## Output Format
 
 Meaningful automated tests, versioned save handling and reproducible release checks.
 
 ## Examples
 
-Migrate a version-one inventory save while preserving known item IDs and reporting unavailable content.
+**Input:** Migrate an inventory save while protecting the live inventory from corrupt input.
+
+**Result:** A versioned fixture maps old item IDs into temporary state before committing. Tests cover missing keys, invalid IDs and failed restore without partial inventory mutation.
 
 ## Constraints
 

@@ -12,8 +12,8 @@ resource ownership and state transitions.
 | platformer | LrgPlatformerTemplate | game-platformer-demo.c |
 | top-down | LrgTopDownTemplate | game-top-down-demo.c |
 | shooter | LrgShooter2DTemplate | game-shmup-demo.c (specialized child) |
-| twin-stick | LrgTwinStickTemplate (final) | use shooter parent hooks and input maps |
-| shmup | LrgShmupTemplate (final) | game-shmup-demo.c |
+| twin-stick | LrgTwinStickTemplate (derivable) | use shooter parent hooks and input maps |
+| shmup | LrgShmupTemplate (derivable) | game-shmup-demo.c |
 | tycoon | LrgTycoonTemplate | game-micro-tycoon.c |
 | racing-2d | LrgRacing2DTemplate | inspect its header and implementation |
 | fps | LrgFPSTemplate | game-fps-demo.c |
@@ -24,8 +24,9 @@ resource ownership and state transitions.
 | idle | LrgIdleTemplate | game-chocolate-chip-clicker.c |
 
 * Platformer: one room, one exit
-Use the platformer collision hooks to answer horizontal and vertical movement;
-the template's movement helpers are not a substitute for your level geometry.
+The base platformer clamps motion to a private flat ground level; check_ground
+and check_wall do not provide arbitrary level resolution. Own update_physics
+for platforms, walls and ceilings; there is no check_ceiling vfunc.
 Specify whether sprite coordinates denote feet or top-left. Keep collision
 bounds independent of decorative pixels. Implement a spawn, safe floor, jump,
 collectible and exit. Test edge contacts, ceiling collision, coyote time, buffered

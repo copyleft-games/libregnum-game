@@ -13,11 +13,17 @@ Requests for public/free models, animated characters, PBR materials or environme
 
 ## Prerequisites
 
-A checkout of this repository and its pinned engine; see README.md for build
-packages. Asset search needs browsing/network access; intake needs Python 3.
+A game art brief, browsing/network access for creator/license evidence, and
+Python 3 for intake. Engine sources are needed to check format support; an
+appropriate graphics/audio device is needed for runtime acceptance.
 Load only the references relevant to the task. Paths in commands are repository-relative.
 
 ## Instructions
+
+First read [the engine recipe](references/engine-recipe.md) for this task. It
+links the inspected headers, implementations and tests, identifies defaults and
+missing game behavior, and gives concrete failure cases. Recheck those sources
+when the pinned engine changes. All commands run from the repository root.
 
 1. Read [asset sources and formats](../../../docs/assets.org). Determine visual style, units, axes, triangle/texture budget, animation needs and target hardware.
 2. Search current Kenney, Quaternius and Poly Haven asset pages. Compare direct links, licenses, formats, size and material/rig requirements.
@@ -26,13 +32,23 @@ Load only the references relevant to the task. Paths in commands are repository-
 5. Use [asset intake](../libregnum-skill-import-assets/SKILL.md). Preserve texture/buffer paths; never flatten dependent model files.
 6. Load via grl_model_new_from_file in a graphics context. Check material appearance, scale, orientation, collider separation and animation compatibility; report unsupported features.
 
+## Verification
+
+Run `make starter-check` after changing this bundle. Run
+`make engine-contract-check` with initialized dependencies to check the recorded
+source symbols against the pin. For implementation changes, run the owning C
+tests and any required display/audio checks from the recipe. Report skipped
+checks explicitly; source-symbol checks do not prove runtime behavior.
+
 ## Output Format
 
 Candidate comparison, pinned model files, license/provenance and import/visual check results.
 
 ## Examples
 
-Find a low-poly barrel: choose Kenney Platformer Kit, import its GLB and texture, then check scale and shading in a third-person scene.
+**Input:** Find a low-poly barrel compatible with the current loader.
+
+**Result:** A source/license dossier selects the Kenney GLB and its texture sidecar. The imported manifest pins both files, and the report separates mesh import from shading and scale inspection.
 
 ## Constraints
 

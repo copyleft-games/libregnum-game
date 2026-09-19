@@ -20,6 +20,10 @@ All project skill names and matching directories start with `libregnum-`
 | Persistence and verification | [Save/test](skills/libregnum-skill-game-save-test/SKILL.md) |
 | Public/free 2D art, UI and audio | [Find 2D assets](skills/libregnum-skill-find-2d-assets/SKILL.md) |
 | Public/free models and materials | [Find 3D assets](skills/libregnum-skill-find-3d-assets/SKILL.md) |
+| YAML definitions and live reload | [Content](skills/libregnum-skill-game-content/SKILL.md) |
+| Music, effects and audio lifetime | [Audio](skills/libregnum-skill-game-audio/SKILL.md) |
+| Tracks, laps and vehicle surfaces | [Racing](skills/libregnum-skill-game-racing/SKILL.md) |
+| Missing engine behavior and fixes | [Engine extension](skills/libregnum-skill-engine-extension/SKILL.md) |
 | Download, validate, credit assets | [Intake](skills/libregnum-skill-import-assets/SKILL.md) |
 
 | Role | Focus |
@@ -34,3 +38,8 @@ All project skill names and matching directories start with `libregnum-`
 Example: “Read the asset-curator role and find CC0 16x16 dungeon sprites; import
 only the tiles we need and regenerate credits.” Run `make starter-check` after
 editing this directory to validate frontmatter, required sections and local links.
+
+Every skill includes a linked `references/engine-recipe.md` with inspected APIs,
+ownership, defaults and failure cases. Read only the recipe needed for the task.
+See [authoring/validation](../docs/skill-structure.org) for bundle layout, checks
+and the distinction between source evidence and executed engine tests.

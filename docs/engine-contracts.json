@@ -1,0 +1,560 @@
+{
+  "version": 1,
+  "engine_commit": "e3e32cc9b593578348dbf4df7123b0be9cfe3c4f",
+  "records": [
+    {
+      "skill": "libregnum-skill-game-bootstrap",
+      "path": "src/template/lrg-game-template.h",
+      "symbols": [
+        "lrg_game_template_startup",
+        "lrg_game_template_shutdown_game",
+        "create_initial_state",
+        "register_types"
+      ],
+      "sha256": "71c2d8a453a319aa7539890087e07c34dcfef103b96699436f10b45bf281386d"
+    },
+    {
+      "skill": "libregnum-skill-game-bootstrap",
+      "path": "src/template/lrg-game-template.c",
+      "symbols": [
+        "lrg_game_template_startup",
+        "lrg_input_manager_poll",
+        "lrg_audio_manager_update"
+      ],
+      "sha256": "be35ee61920a94b9c6bafe62b8a225d99def7dc5ad9647a6931347522142ae60"
+    },
+    {
+      "skill": "libregnum-skill-game-bootstrap",
+      "path": "tests/test-template.c",
+      "symbols": [
+        "test_game_template_input_frame"
+      ],
+      "sha256": "587a1c17e8ff11f41d8f74aa57151aca3b8da864f5403384c4d4b2c2eedc4d19"
+    },
+    {
+      "skill": "libregnum-skill-game-platformer",
+      "path": "src/template/lrg-platformer-template.h",
+      "symbols": [
+        "update_physics",
+        "check_ground",
+        "check_wall"
+      ],
+      "sha256": "88f95f404adf12278cd8fc0f09bc8c64b54718c0830e196ff4539f1172c4a50d"
+    },
+    {
+      "skill": "libregnum-skill-game-platformer",
+      "path": "src/template/lrg-platformer-template.c",
+      "symbols": [
+        "lrg_platformer_template_real_update_physics",
+        "lrg_platformer_template_real_check_ground"
+      ],
+      "sha256": "4aff14937d5886bb0efb213639e4b697a2e76360a6926f39c3a9a138e6fe37bf"
+    },
+    {
+      "skill": "libregnum-skill-game-platformer",
+      "path": "examples/game-platformer-demo.c",
+      "symbols": [
+        "demo_platformer_draw_world"
+      ],
+      "sha256": "8f2e2114fae2e0f1211493c86278baaf8c0ca03cb94a813cf49876381a033203"
+    },
+    {
+      "skill": "libregnum-skill-game-platformer",
+      "path": "tests/test-template-2d.c",
+      "symbols": [
+        "lrg_platformer_template"
+      ],
+      "sha256": "ffd4e19e1c2d821c3aa26a1023c61db9ebc124e4d829a25f130dba4e3c546029"
+    },
+    {
+      "skill": "libregnum-skill-game-top-down",
+      "path": "src/template/lrg-top-down-template.h",
+      "symbols": [
+        "check_collision",
+        "on_interact",
+        "on_interact_target_changed"
+      ],
+      "sha256": "3e4b9dffeed72c7dcba933d43c2a08d380b9420d89c0f75647b974e4b953c0a0"
+    },
+    {
+      "skill": "libregnum-skill-game-top-down",
+      "path": "src/template/lrg-top-down-template.c",
+      "symbols": [
+        "lrg_top_down_template_real_check_collision"
+      ],
+      "sha256": "d6ddd9924284fdbcf924fe85fb57d28103733a012b9b76e1c978694ffe2acdc5"
+    },
+    {
+      "skill": "libregnum-skill-game-top-down",
+      "path": "examples/game-top-down-demo.c",
+      "symbols": [
+        "lrg_top_down_template"
+      ],
+      "sha256": "40f9e447c65d74cc80f8b81253e6b16cda6f8cd313f8e6c0221d50f7d9cb3e7d"
+    },
+    {
+      "skill": "libregnum-skill-game-top-down",
+      "path": "tests/test-template-2d.c",
+      "symbols": [
+        "lrg_top_down_template"
+      ],
+      "sha256": "ffd4e19e1c2d821c3aa26a1023c61db9ebc124e4d829a25f130dba4e3c546029"
+    },
+    {
+      "skill": "libregnum-skill-game-shooter",
+      "path": "src/template/lrg-shooter-2d-template.h",
+      "symbols": [
+        "spawn_projectile",
+        "update_projectiles",
+        "on_projectile_hit"
+      ],
+      "sha256": "0a87f28bc397464bbd8edbdab019a97cfd9684121dc788262fe5452f0282833d"
+    },
+    {
+      "skill": "libregnum-skill-game-shooter",
+      "path": "src/template/lrg-shooter-2d-template.c",
+      "symbols": [
+        "lrg_shooter_2d_template_real_update_projectiles"
+      ],
+      "sha256": "f973677db719557224a37d2807c43cf90a8353547f7c6049c3a91048b286ae75"
+    },
+    {
+      "skill": "libregnum-skill-game-shooter",
+      "path": "src/template/lrg-twin-stick-template.h",
+      "symbols": [
+        "G_DECLARE_DERIVABLE_TYPE",
+        "update_aim"
+      ],
+      "sha256": "f0821eae62a15f6149e822491a8a0d17f0a016c46f35ee5b1547352c4ed7cddb"
+    },
+    {
+      "skill": "libregnum-skill-game-shooter",
+      "path": "src/template/lrg-shmup-template.h",
+      "symbols": [
+        "G_DECLARE_DERIVABLE_TYPE",
+        "on_graze"
+      ],
+      "sha256": "28e103077e8e3709da61d0847e2917095e05255e1b7805402832baa6c6a1f81e"
+    },
+    {
+      "skill": "libregnum-skill-game-shooter",
+      "path": "tests/test-template-2d.c",
+      "symbols": [
+        "lrg_shooter_2d_template"
+      ],
+      "sha256": "ffd4e19e1c2d821c3aa26a1023c61db9ebc124e4d829a25f130dba4e3c546029"
+    },
+    {
+      "skill": "libregnum-skill-game-3d",
+      "path": "src/template/lrg-fps-template.c",
+      "symbols": [
+        "lrg_fps_template_real_check_ground"
+      ],
+      "sha256": "8002f1e0edee8457c4eaf7a2fec8b5c349c9fc8c928dee392a3daab8c3ce6546"
+    },
+    {
+      "skill": "libregnum-skill-game-3d",
+      "path": "src/template/lrg-third-person-template.h",
+      "symbols": [
+        "check_camera_collision",
+        "update_camera_orbit"
+      ],
+      "sha256": "e4433f9521c9991f41065a88f40967edf8caa15f51ffd917240cfaebd51438f8"
+    },
+    {
+      "skill": "libregnum-skill-game-3d",
+      "path": "src/template/lrg-third-person-template.c",
+      "symbols": [
+        "lrg_third_person_template_real_check_camera_collision"
+      ],
+      "sha256": "3b25cf69ec3e53203b617e4bb2fe54b59dfc7281758fcef8def26d7c5ccfa8de"
+    },
+    {
+      "skill": "libregnum-skill-game-3d",
+      "path": "deps/graylib/src/graphics/grl-model.h",
+      "symbols": [
+        "grl_model_new_from_file"
+      ],
+      "sha256": "9b3a811be96761561ad1163da6f3aa64adf02dd206476e009af23a8ef3d38955"
+    },
+    {
+      "skill": "libregnum-skill-game-3d",
+      "path": "tests/test-template-3d.c",
+      "symbols": [
+        "lrg_fps_template"
+      ],
+      "sha256": "e0e917566e48bda6af48508b337bf792a69a0b8807ffc5063eb35553de586bf7"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "src/template/lrg-tycoon-template.c",
+      "symbols": [
+        "lrg_tycoon_template_real_update_economy"
+      ],
+      "sha256": "8c84214f24aa6679d88bcc72ed54d17ad5544f001ba0237bc8d15c4e3b576602"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "src/template/lrg-idle-template.c",
+      "symbols": [
+        "lrg_idle_template_process_offline_progress"
+      ],
+      "sha256": "e37789133f734116930d2e688039280f38ed3529c465317c98067d1b5d1e3eb6"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "src/template/lrg-deckbuilder-combat-template.h",
+      "symbols": [
+        "G_DECLARE_FINAL_TYPE"
+      ],
+      "sha256": "aeaa80eec8674d1fb6f8b8110a1485764382ee23d636b805c1b762916d539c52"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "src/template/lrg-deckbuilder-poker-template.h",
+      "symbols": [
+        "G_DECLARE_FINAL_TYPE"
+      ],
+      "sha256": "0f408340ab8a7ee5c2fc72d15ace77747d77dcbfe07fac8f4551da9f7e946575"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "tests/test-template-idle.c",
+      "symbols": [
+        "lrg_idle_template"
+      ],
+      "sha256": "c2c106891d60967ea3db8c3d41f28fe561527d8839aae53308c14f82a808c3cf"
+    },
+    {
+      "skill": "libregnum-skill-game-strategy",
+      "path": "tests/test-template-deckbuilder.c",
+      "symbols": [
+        "lrg_deckbuilder"
+      ],
+      "sha256": "8e8891b63a9b2bcfc01f63a79f9aef99c542d375088c3fd9bc8626bcaa1bb037"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "src/gamestate/lrg-game-state-manager.h",
+      "symbols": [
+        "lrg_game_state_manager_push"
+      ],
+      "sha256": "dac294c8018aff018e6c5de389d070e47edb87096da3e30dbf952722ca7acb9f"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "src/gamestate/lrg-game-state-manager.c",
+      "symbols": [
+        "lrg_game_state_manager_update",
+        "lrg_game_state_manager_handle_input"
+      ],
+      "sha256": "a7463cdbf537031aab88949e8732d31c6b526b2f4d9f20a401e9b3a0b272a53d"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "src/ecs/lrg-world.h",
+      "symbols": [
+        "lrg_world_add_object"
+      ],
+      "sha256": "1050fac3f9ebab7e6d566cb13744543eb6a79e67fba4d45237f26ca3b2f105a2"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "src/ecs/lrg-game-object.h",
+      "symbols": [
+        "lrg_game_object_add_component"
+      ],
+      "sha256": "9edc99ec44176b89758ed7401875854e55da7f692ae913129ab62e3641c6f79f"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "src/input/lrg-input-manager.h",
+      "symbols": [
+        "lrg_input_manager_poll"
+      ],
+      "sha256": "3fbb37e9bef61e2a54e82889b48f540e82acdd6cca9414da4deaa76e40f9e604"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "tests/test-gamestate.c",
+      "symbols": [
+        "lrg_game_state_manager"
+      ],
+      "sha256": "7aa9f6bd0c6772cca8bafe7413a4afef591ebf4dd28b5f958a72c25b8bf51e66"
+    },
+    {
+      "skill": "libregnum-skill-game-systems",
+      "path": "tests/test-input.c",
+      "symbols": [
+        "lrg_input_manager"
+      ],
+      "sha256": "0897d5b8762c4fe8d03dc2b309973ad367c20c450928996541aae0657610a155"
+    },
+    {
+      "skill": "libregnum-skill-game-save-test",
+      "path": "src/save/lrg-saveable.h",
+      "symbols": [
+        "get_save_id",
+        "save",
+        "load"
+      ],
+      "sha256": "17894a32ecaeae485d434e693c6eb116e0b9fba63a90fbc2d15b3a37f05aebf7"
+    },
+    {
+      "skill": "libregnum-skill-game-save-test",
+      "path": "src/save/lrg-save-manager.c",
+      "symbols": [
+        "lrg_save_manager_register",
+        "lrg_save_context_enter_section"
+      ],
+      "sha256": "87f1a76666c7d2c913eb682385464bd4b148091f01ccea3d21861265473c7f32"
+    },
+    {
+      "skill": "libregnum-skill-game-save-test",
+      "path": "src/save/lrg-save-context.h",
+      "symbols": [
+        "lrg_save_context_set_version",
+        "lrg_save_context_has_key"
+      ],
+      "sha256": "867dc504da087850eee7c9b577cf47a1b0252913db707ee4204537c2c90b7b54"
+    },
+    {
+      "skill": "libregnum-skill-game-save-test",
+      "path": "tests/test-save.c",
+      "symbols": [
+        "test_saveable_interface"
+      ],
+      "sha256": "4755dafd6b621b71464d36f05caabec59ce3f05aa5e5f82a179128c7d5bb00dd"
+    },
+    {
+      "skill": "libregnum-skill-find-2d-assets",
+      "path": "src/core/lrg-asset-manager.h",
+      "symbols": [
+        "lrg_asset_manager_load_texture",
+        "lrg_asset_manager_load_font",
+        "lrg_asset_manager_load_sound"
+      ],
+      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+    },
+    {
+      "skill": "libregnum-skill-find-2d-assets",
+      "path": "deps/graylib/deps/raylib/src/config.h",
+      "symbols": [
+        "SUPPORT_FILEFORMAT_PNG"
+      ],
+      "sha256": "0495bce56ae6e1cd5c4e3e1e635fec8915c551e41ee3b62c7841537bed3878d7"
+    },
+    {
+      "skill": "libregnum-skill-find-2d-assets",
+      "path": "tests/test-asset-manager.c",
+      "symbols": [
+        "test_asset_dispatch_errors"
+      ],
+      "sha256": "f647689af3cfc5533be9944fff292529be537b4d63b4066eaa6b58d6fb3e1b82"
+    },
+    {
+      "skill": "libregnum-skill-find-3d-assets",
+      "path": "deps/graylib/src/graphics/grl-model.h",
+      "symbols": [
+        "grl_model_new_from_file",
+        "grl_model_get_mesh_count"
+      ],
+      "sha256": "9b3a811be96761561ad1163da6f3aa64adf02dd206476e009af23a8ef3d38955"
+    },
+    {
+      "skill": "libregnum-skill-find-3d-assets",
+      "path": "deps/graylib/src/graphics/grl-model-animation.h",
+      "symbols": [
+        "grl_model_animation"
+      ],
+      "sha256": "cd380c9c31d6bec4902f16d9f0838e2edcc1646a9f6011bb2aaf688544a3b2b8"
+    },
+    {
+      "skill": "libregnum-skill-find-3d-assets",
+      "path": "deps/graylib/deps/raylib/src/config.h",
+      "symbols": [
+        "SUPPORT_FILEFORMAT_GLTF",
+        "SUPPORT_FILEFORMAT_OBJ"
+      ],
+      "sha256": "0495bce56ae6e1cd5c4e3e1e635fec8915c551e41ee3b62c7841537bed3878d7"
+    },
+    {
+      "skill": "libregnum-skill-import-assets",
+      "path": "src/core/lrg-asset-manager.h",
+      "symbols": [
+        "lrg_asset_manager_load_asset",
+        "lrg_asset_manager_load_object"
+      ],
+      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+    },
+    {
+      "skill": "libregnum-skill-import-assets",
+      "path": "deps/graylib/src/graphics/grl-model.h",
+      "symbols": [
+        "grl_model_new_from_file"
+      ],
+      "sha256": "9b3a811be96761561ad1163da6f3aa64adf02dd206476e009af23a8ef3d38955"
+    },
+    {
+      "skill": "libregnum-skill-import-assets",
+      "path": "tests/test-asset-manager.c",
+      "symbols": [
+        "test_asset_dispatch_errors"
+      ],
+      "sha256": "f647689af3cfc5533be9944fff292529be537b4d63b4066eaa6b58d6fb3e1b82"
+    },
+    {
+      "skill": "libregnum-skill-game-racing",
+      "path": "src/template/lrg-racing-2d-template.h",
+      "symbols": [
+        "get_surface_at",
+        "on_checkpoint_passed",
+        "update_vehicle"
+      ],
+      "sha256": "d26bc467d20621313c184e02c1b6252473d8be8e08d642a40f53ad29bba475fc"
+    },
+    {
+      "skill": "libregnum-skill-game-racing",
+      "path": "src/template/lrg-racing-3d-template.h",
+      "symbols": [
+        "check_checkpoints",
+        "on_checkpoint_reached"
+      ],
+      "sha256": "d7ef836449c14abc98f1723e2f271e7360ff2a354b71c1afb1977b276d93d594"
+    },
+    {
+      "skill": "libregnum-skill-game-racing",
+      "path": "src/template/lrg-racing-3d-template.c",
+      "symbols": [
+        "lrg_racing_3d_template_real_check_checkpoints"
+      ],
+      "sha256": "259fb38fc0801e3bebe0dbdf1bb5aad8102226ea45d96f913e26be52b4881663"
+    },
+    {
+      "skill": "libregnum-skill-game-racing",
+      "path": "tests/test-template-3d.c",
+      "symbols": [
+        "lrg_racing_3d_template"
+      ],
+      "sha256": "e0e917566e48bda6af48508b337bf792a69a0b8807ffc5063eb35553de586bf7"
+    },
+    {
+      "skill": "libregnum-skill-game-racing",
+      "path": "tests/test-template-2d.c",
+      "symbols": [
+        "lrg_racing_2d_template"
+      ],
+      "sha256": "ffd4e19e1c2d821c3aa26a1023c61db9ebc124e4d829a25f130dba4e3c546029"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "src/core/lrg-data-loader.h",
+      "symbols": [
+        "lrg_data_loader_load_file_validated",
+        "lrg_data_loader_load_file"
+      ],
+      "sha256": "5c662df5cca2646b11a707c53838f763ac24c57048d9ccc53a451df8d80eeb67"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "src/core/lrg-registry.h",
+      "symbols": [
+        "lrg_registry_register"
+      ],
+      "sha256": "6691259a68a49fbb89aef6f8ada5a86fc7ee153e00f8471927d1118f0bce24c3"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "src/core/lrg-asset-manager.h",
+      "symbols": [
+        "lrg_asset_manager_load_object",
+        "lrg_asset_manager_reload_object",
+        "lrg_asset_manager_watch_object"
+      ],
+      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "tests/test-data-loader.c",
+      "symbols": [
+        "lrg_data_loader_load_file_validated"
+      ],
+      "sha256": "368ea56efec8f9ceb159f5235b69955d4e42ccb906c000e92e98de7f290f7733"
+    },
+    {
+      "skill": "libregnum-skill-game-content",
+      "path": "tests/test-asset-manager.c",
+      "symbols": [
+        "lrg_asset_manager_reload_object"
+      ],
+      "sha256": "f647689af3cfc5533be9944fff292529be537b4d63b4066eaa6b58d6fb3e1b82"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "src/audio/lrg-audio-manager.h",
+      "symbols": [
+        "lrg_audio_manager_update",
+        "lrg_audio_manager_play_music_from_file",
+        "lrg_audio_manager_set_master_volume"
+      ],
+      "sha256": "4fa1c127d3f1f769af2bbe50444aa7586c4e238c9bff7c96a6380e82aaaa79d2"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "src/core/lrg-asset-manager.h",
+      "symbols": [
+        "lrg_asset_manager_load_sound",
+        "lrg_asset_manager_load_music"
+      ],
+      "sha256": "79e8ddb64244ed40b039c2d38d9d06ab76b4a04bf12fe6d0b9482170fb15f77a"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "src/template/lrg-game-template.c",
+      "symbols": [
+        "lrg_audio_manager_update"
+      ],
+      "sha256": "be35ee61920a94b9c6bafe62b8a225d99def7dc5ad9647a6931347522142ae60"
+    },
+    {
+      "skill": "libregnum-skill-game-audio",
+      "path": "tests/test-audio.c",
+      "symbols": [
+        "lrg_audio_manager"
+      ],
+      "sha256": "c145946514d7357fc6c642131107633bc55bf11e293d4ef4c73d6fadf91434db"
+    },
+    {
+      "skill": "libregnum-skill-engine-extension",
+      "path": "src/core/lrg-asset-manager.c",
+      "symbols": [
+        "lrg_asset_manager_load_asset"
+      ],
+      "sha256": "4419cb3f7bfdc4b754411f7ec84efa27fd681e1ae1c64761f42618de38ed03ff"
+    },
+    {
+      "skill": "libregnum-skill-engine-extension",
+      "path": "src/core/lrg-data-loader.c",
+      "symbols": [
+        "lrg_data_loader_load_file_validated"
+      ],
+      "sha256": "ea26efeb00ba8050ebbe083c95a3e1660b9baa10cda54f3c32bed7714e7055eb"
+    },
+    {
+      "skill": "libregnum-skill-engine-extension",
+      "path": "tests/test-asset-manager.c",
+      "symbols": [
+        "test_asset_dispatch_errors"
+      ],
+      "sha256": "f647689af3cfc5533be9944fff292529be537b4d63b4066eaa6b58d6fb3e1b82"
+    },
+    {
+      "skill": "libregnum-skill-engine-extension",
+      "path": "tests/Makefile",
+      "symbols": [
+        "test-asset-manager"
+      ],
+      "sha256": "f32c63aaea87d7ffcfd6eaff8c4d41c03f5b1f4b5222816930f2a4ee1b8bc97e"
+    }
+  ]
+}

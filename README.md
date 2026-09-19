@@ -52,6 +52,7 @@ The normal test suite does not use the network or open a window.
 | `make deps` | Build the engine and its dependencies |
 | `make run ARGS='--genre top-down'` | Launch a selected starter |
 | `make test` | Run game GTests and Python starter checks |
+| `make engine-contract-check` | Check recipe source evidence against the engine pin |
 | `make starter-check` | Check tooling, skills, documentation links and credits with Python 3 |
 | `make clean`, `make clean-all` | Clean game builds / also clean engine output |
 | `make help` | List build options and utility targets |
@@ -95,7 +96,7 @@ src/                  Entry point and genre factory; add game modules here
 tests/                GTest and hermetic Python regression tests
 data/assets/          Manifest, selected asset packs, licenses and credits
 docs/                 Org-mode game and workflow guides
-.agents/skills/       Eleven task-specific skills
+.agents/skills/       Fifteen task-specific skills
 .agents/agents/       Six portable specialist role definitions
 tools/                Asset importer, starter validator and GPU import check
 deps/libregnum/       Pinned engine submodule, examples and API documentation

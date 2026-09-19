@@ -13,11 +13,17 @@ Requests for free/public sprites, tilesets, UI, fonts or sounds.
 
 ## Prerequisites
 
-A checkout of this repository and its pinned engine; see README.md for build
-packages. Asset search needs browsing/network access; intake needs Python 3.
+A game art brief, browsing/network access for creator/license evidence, and
+Python 3 for intake. Engine sources are needed to check format support; an
+appropriate graphics/audio device is needed for runtime acceptance.
 Load only the references relevant to the task. Paths in commands are repository-relative.
 
 ## Instructions
+
+First read [the engine recipe](references/engine-recipe.md) for this task. It
+links the inspected headers, implementations and tests, identifies defaults and
+missing game behavior, and gives concrete failure cases. Recheck those sources
+when the pinned engine changes. All commands run from the repository root.
 
 1. Read [asset sources and conventions](../../../docs/assets.org). Extract subject, style, pixel dimensions, palette, animation needs, license constraints and size budget from the brief.
 2. Search current creator pages: start with Kenney for sprites/UI/audio and OpenGameArt for alternatives. Query subject plus dimensions/style and inspect multiple candidates.
@@ -26,13 +32,23 @@ Load only the references relevant to the task. Paths in commands are repository-
 5. Follow [asset intake](../libregnum-skill-import-assets/SKILL.md) to download selected files and pin archive/member hashes. Preserve font/audio licenses just like images.
 6. Check alpha, tile gutters, sprite pivots, filter mode and audio playback in the target game. Record changes and remaining visual/device checks.
 
+## Verification
+
+Run `make starter-check` after changing this bundle. Run
+`make engine-contract-check` with initialized dependencies to check the recorded
+source symbols against the pin. For implementation changes, run the owning C
+tests and any required display/audio checks from the recipe. Report skipped
+checks explicitly; source-symbol checks do not prove runtime behavior.
+
 ## Output Format
 
 A sourced comparison and selected manifest entries with licensed, standardized runtime files.
 
 ## Examples
 
-Find a 16x16 dungeon tile set: inspect Kenney Tiny Dungeon, record its CC0 evidence, import selected PNGs and test pixel filtering.
+**Input:** Find 16x16 dungeon sprites that can ship in the game.
+
+**Result:** A comparison records exact creator/license URLs, author, dimensions and selection reasons. The chosen PNG members are pinned, credited and checked at integer scaling; collision data remains separate.
 
 ## Constraints
 

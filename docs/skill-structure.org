@@ -1,0 +1,71 @@
+#+title: Authoring and verifying libregnum skills
+
+* Authoring contract
+These bundles follow the explicitly requested skill-skill-writer workflow:
+capability/trigger metadata; When to Use, Prerequisites, Instructions, Output
+Format, Examples and Constraints; concrete input/result examples; and linked
+supporting resources. The user's =libregnum-= prefix overrides that skill's
+generic directory-prefix default. Frontmatter names equal directory names.
+
+Keep the essential workflow in SKILL.md. Put source trails, exact API contracts,
+failure matrices and recipes in references/. Put adaptable output documents in
+templates/, runnable helpers in scripts/, and static outputs in assets/ only when
+needed. Link every resource from a reachable bundle document and say when to
+read/copy/run it. Commands here are repository-relative; engine source links in
+references resolve against deps/libregnum. Do not assume global skill installation.
+
+Aim for 500 lines per entrypoint, 200 per reference, 300 per helper and 100 per
+template. Current bundles fit these limits; no size exceptions are needed. The
+machine-readable engine-contracts.json is evidence data, not a loaded skill
+entrypoint. Keep agents focused and link only the skills relevant to their roles.
+
+* Evidence before prose
+For each engine claim, inspect the public header, owning implementation, a real
+caller/example and relevant tests. Record the exact pin and source trail in the
+recipe. Distinguish API availability from implemented behavior and runtime checks.
+Examples from this audit: twin-stick/shmup are derivable; platformer physics has a
+flat-ground clamp; 3D checkpoint checking defaults to no-op; manager save loading
+may partially apply; and live YAML reload replaces an object rather than mutating
+all references. Re-read those contracts when updating the engine.
+
+The source evidence file records symbols and hashes of inspected files. Update
+its engine_commit/hashes only after reviewing source differences and revising the
+corresponding recipes. Never blindly regenerate hashes just to make the check pass.
+All skill recipes must be covered. No engine capability was changed by this audit.
+
+* Checks
+=make starter-check= runs hermetic Python regressions, validates metadata/sections,
+checks concrete example markers, follows local links recursively and reports
+unlinked bundle resources. It also verifies generated credits. It needs Python 3;
+it does not fetch packages, contact providers or run graphics.
+
+The metadata parser supports a deliberately restricted YAML schema: name and
+description string fields, letter-leading plain scalars, JSON-compatible double-quoted strings,
+single-quoted strings, and simple nonempty two-space-indented > or | blocks.
+Other YAML features/fields are rejected explicitly. Use these forms rather than
+assuming anchors, tags or arbitrary YAML metadata are supported. Name/description
+are required; no tool-specific optional metadata is imposed.
+
+=make engine-contract-check= requires the initialized engine at the audited pin.
+It checks HEAD, the parent gitlink, source paths/hashes/symbols and skill coverage.
+It does not build or execute the engine. In an isolated worktree, an unchanged
+pinned source checkout can be inspected read-only with:
+#+begin_src sh
+make engine-contract-check ENGINE_ROOT=/path/to/pinned/libregnum
+python3 tools/check-starter.py --engine-root /path/to/pinned/libregnum
+#+end_src
+If engine sources are absent, starter-check explicitly reports skipped engine
+links; engine-contract-check fails until sources are available. This allows
+metadata-only work without silently treating missing source validation as passed.
+
+For C behavior run the owning GTests and relevant builds. Graphics/audio checks
+remain separate and explicit. Record exact executed commands and skips; a checked
+symbol, imported mesh or constructor does not establish visual quality or gameplay.
+
+* Cold-read acceptance
+An assistant unfamiliar with this conversation must be able to select a skill,
+identify prerequisites, locate exact hooks and ownership rules, implement one
+concrete result and verify the failure paths. Walk through each modified skill's
+example against its recipe. Correct contradictions in the entrypoint as well as
+the reference. Keep network research/licensing review distinct from deterministic
+file verification. Do not spawn agents unless explicitly requested.

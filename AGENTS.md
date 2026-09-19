@@ -12,6 +12,10 @@ sub-agent spawning or select a model.
 - New game: `libregnum-skill-game-bootstrap`, then the matching platformer, top-down,
   shooter, 3D or strategy skill. The launcher accepts `--genre` and `--list-genres`.
 - ECS/input/UI/audio/YAML: `libregnum-skill-game-systems` and [system recipes](docs/game-systems.org).
+- YAML validation/reload: `libregnum-skill-game-content`; audio lifecycle:
+  `libregnum-skill-game-audio`; track progression: `libregnum-skill-game-racing`.
+- Engine gaps: `libregnum-skill-engine-extension`. Inspect the linked source recipe
+  before making assumptions about defaults, final types or transfer ownership.
 - Persistence/checks: `libregnum-skill-game-save-test`.
 - Public/free assets: `libregnum-skill-find-2d-assets` or `libregnum-skill-find-3d-assets`, followed
   by `libregnum-skill-import-assets`. Follow [asset conventions](docs/assets.org).
@@ -26,6 +30,10 @@ sub-agent spawning or select a model.
   links and credits. Run `make test` for C behavior too. `make assets-verify`
   checks installed packs; `make assets-smoke` is an explicit graphics-context
   check. Keep network and display-dependent checks out of ordinary unit tests.
+- Run `make engine-contract-check` with initialized pinned sources to check the
+  recipe evidence. This does not execute engine tests. Follow
+  [skill authoring](docs/skill-structure.org) when extending bundles; retain the
+  `libregnum-` namespace and link each supporting resource from its entrypoint.
 - Update org-mode documentation alongside behavior; report checks that did not
   run. Preserve unrelated work and never push without a user instruction.
 

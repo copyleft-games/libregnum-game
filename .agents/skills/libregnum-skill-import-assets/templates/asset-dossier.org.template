@@ -1,0 +1,24 @@
+#+title: Asset selection and intake record
+
+* Art brief
+Record subject, style, scale/dimensions, animation needs, platform and budgets.
+
+* Candidate comparison
+For each candidate record creator/title, direct asset page, license URL and
+included license evidence, download size, formats and dependencies. Explain
+selection/rejection and any commercial-use or attribution constraints.
+
+* Chosen files
+Record pack ID, source archive URL/hash and selected member paths/hashes.
+List model buffer/texture/MTL sidecars and how relative paths are preserved.
+Attach original license text and complete credits. Record unchanged bytes or
+specific conversion tool/version/settings and changed output provenance.
+
+* Example failure and acceptance
+A barrel GLB loads its mesh but refers to Textures/colormap.png. Include the
+texture at that relative path, verify both hashes, and check shading/scale in a
+real scene. Replace this example with the selected asset's actual dependency case.
+
+* Results
+Record importer/verification commands, runtime load results, visual/audio checks
+and remaining limitations. Do not equate a successful hash check with rendering.

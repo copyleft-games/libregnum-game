@@ -24,7 +24,7 @@
 include config.mk
 
 # Check dependencies before anything else (skip for bootstrap targets)
-SKIP_DEP_CHECK_GOALS := starter-check assets-validate assets-fetch assets-verify assets-credits install-deps help show-config check-deps clean clean-all
+SKIP_DEP_CHECK_GOALS := engine-contract-check starter-check assets-validate assets-fetch assets-verify assets-credits install-deps help show-config check-deps clean clean-all
 ifneq ($(if $(MAKECMDGOALS),$(filter-out $(SKIP_DEP_CHECK_GOALS),$(MAKECMDGOALS)),all),)
 $(foreach dep,$(DEPS_REQUIRED),$(call check_dep,$(dep)))
 endif
@@ -182,6 +182,7 @@ help:
 	@echo ""
 	@echo "Starter: make run ARGS='--genre top-down'"
 	@echo "  starter-check - Check skills, docs, and asset tooling (Python 3)"
+	@echo "  engine-contract-check - Verify recipe evidence against pinned sources"
 	@echo "  assets-validate / assets-fetch / assets-verify / assets-credits"
 	@echo ""
 	@echo "Utility targets:"
@@ -215,3 +216,9 @@ assets-smoke: assets-verify $(OUTDIR)/asset-smoke
 $(OUTDIR)/asset-smoke: tools/asset-smoke.c | deps $(OUTDIR)
 	$(call print_link,"asset-smoke")
 	@$(CC) $(GAME_CFLAGS) -o $@ $< $(GAME_LDFLAGS) $(GAME_LIBS)
+
+# Read-only validation of recipe evidence against the exact engine pin.
+ENGINE_ROOT ?= $(CURDIR)/deps/libregnum
+.PHONY: engine-contract-check
+engine-contract-check:
+	$(PYTHON) tools/check-engine-contracts.py --engine-root "$(ENGINE_ROOT)"

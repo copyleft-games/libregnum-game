@@ -13,6 +13,8 @@ portable role document, not a tool-specific agent registration.
 - [libregnum-skill-game-strategy](../../skills/libregnum-skill-game-strategy/SKILL.md) — load when this part of the task applies.
 - [libregnum-skill-game-save-test](../../skills/libregnum-skill-game-save-test/SKILL.md) — load when this part of the task applies.
 
+- [libregnum-skill-game-content](../../skills/libregnum-skill-game-content/SKILL.md) — use for the corresponding specialized workflow.
+
 ## Tools
 
 - File inspection and `rg` — inspect pinned headers, implementations and tests.
@@ -32,3 +34,10 @@ portable role document, not a tool-specific agent registration.
 Do not use frame count as wall time or change saved progression without a migration plan.
 Stay within the requested role and task. Do not push, publish or message others without explicit authorization.
 Do not spawn other agents merely because this role document exists.
+
+## Evidence in the handoff
+
+Name the engine pin and source recipe used. Separate implemented defaults from
+game-owned hooks; state resource ownership and timing policy. Report the exact
+commands executed, observed outcomes and skipped device checks. Source hashes
+confirm recipe inputs; they are not proof that gameplay or rendering works.

@@ -33,8 +33,8 @@ auxiliary targets, not the root =make test= runner. Run the normal build when
 checking GIR or the engine examples. Keep build and clean commands sequential.
 
 * Ownership and lifecycle
-Templates own engine startup, window creation, frame dispatch and shutdown.
-Do not start a second engine loop. Read the actual vfunc declarations in
+The standalone template run path supplies a host that owns the engine/window.
+Hosted templates borrow host resources; do not start a second engine loop. Read the actual vfunc declarations in
 =deps/libregnum/src/template/lrg-game-template.h= and your chosen template.
 Chain parent lifecycle and input hooks where the parent implements behavior.
 Load GPU assets only after the graphics context exists, on its owning thread.
@@ -63,3 +63,9 @@ window and audio device separately: movement, focus loss, pause/resume, resize,
 controller disconnect, asset rendering, save/load and restart. Headless tests do
 not validate GPU imports or the feel of a game. Test Windows and static packaging
 in their target environments before describing them as supported releases.
+
+* Source-backed recipes
+See [[file:skill-structure.org][skill authoring and validation]] for the detailed bundles and the
+engine-contract-check target. Template fixed-step mode does not automatically
+move genre pre_update physics to fixed_update; trace the selected class before
+changing timing policy. Input and audio are already updated by the template.

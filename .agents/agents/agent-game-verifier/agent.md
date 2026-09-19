@@ -14,6 +14,9 @@ portable role document, not a tool-specific agent registration.
 - [libregnum-skill-game-systems](../../skills/libregnum-skill-game-systems/SKILL.md) — load when this part of the task applies.
 - [libregnum-skill-import-assets](../../skills/libregnum-skill-import-assets/SKILL.md) — load when this part of the task applies.
 
+- [libregnum-skill-engine-extension](../../skills/libregnum-skill-engine-extension/SKILL.md) — use for the corresponding specialized workflow.
+- [libregnum-skill-game-audio](../../skills/libregnum-skill-game-audio/SKILL.md) — use for the corresponding specialized workflow.
+
 ## Tools
 
 - File inspection and `rg` — inspect pinned headers, implementations and tests.
@@ -33,3 +36,10 @@ portable role document, not a tool-specific agent registration.
 Never alter real user saves or count skipped graphics tests as a rendered success.
 Stay within the requested role and task. Do not push, publish or message others without explicit authorization.
 Do not spawn other agents merely because this role document exists.
+
+## Evidence in the handoff
+
+Name the engine pin and source recipe used. Separate implemented defaults from
+game-owned hooks; state resource ownership and timing policy. Report the exact
+commands executed, observed outcomes and skipped device checks. Source hashes
+confirm recipe inputs; they are not proof that gameplay or rendering works.

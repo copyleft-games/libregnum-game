@@ -64,3 +64,29 @@ Shipping requires a data/runtime-library bundle and launch tests from arbitrary
 working directories; the install target currently installs only the binary.
 Windows, static shipping, Steam, MCP, audio hardware, full engine regression
 suites and interactive playtesting need their own target-specific checks.
+
+* Source-backed skill expansion
+The follow-up audit inspected 65 source records covering template lifecycle,
+platformer/top-down/shooter/FPS/third-person/racing behavior, economy/card/idle
+loops, state and ECS ownership, input frames, save orchestration, validated YAML
+reload, audio and media loaders. Each skill has a linked engine recipe; source
+paths, symbols and file hashes are recorded in engine-contracts.json. Header,
+implementation and test inspection is evidence of a contract, not a claim that
+all referenced engine tests were executed in this pass.
+
+Corrected earlier claims that twin-stick/shmup were final. Documented the private
+flat-ground platformer clamp, no-op 3D checkpoint detection, unchanged default
+third-person camera collision, duplicate save-ID replacement, partial save-load
+application and reload-by-object-replacement. Added dedicated racing, content,
+audio and engine-extension workflows, bringing the catalog to fifteen skills.
+The six roles now route these specialized tasks and require evidence in handoffs.
+
+The skill-skill-writer format is documented in [[file:skill-structure.org][the authoring guide]]. All bundles
+have concrete Input/Result examples, task-specific prerequisites, source-backed
+failure cases and reachable references; two include adaptable org output templates.
+The validator now parses the documented YAML string subset, traverses references,
+checks unlinked resources and explicitly reports missing engine-link validation.
+Twenty-seven hermetic Python tests pass, including new metadata, resource-graph,
+engine-link and source-drift failure cases. Source evidence and links were checked
+against the unchanged pinned engine. No C code or engine API changed in this pass;
+C/GPU/audio builds and engine regression suites were not rerun for these changes.

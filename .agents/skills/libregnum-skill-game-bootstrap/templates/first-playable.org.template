@@ -1,0 +1,22 @@
+#+title: First-playable acceptance record
+
+* Brief and boundary
+Record the player loop, perspective, target device and first win/loss condition.
+List the engine pin, selected template and exact hooks used. Separate base
+behavior from the level, collision, UI and rules implemented by the game.
+
+* Ownership and timing
+Record who owns the host, game states, asset references and persistent objects.
+Identify which callback advances simulation and who polls input/updates audio.
+State how pause, restart and teardown affect each owner.
+
+* Example acceptance case
+Given a player without a key at a locked exit, interaction keeps the exit locked.
+After a successful pickup, interaction opens the exit exactly once. Restart
+restores the locked exit and initial player state. Replace this concrete scenario
+with the chosen game's first loop and enumerate its failure boundaries.
+
+* Verification record
+Record exact build/test commands, fixtures/seeds, observed results and skips.
+Separate source inspection, headless tests and real display/audio observations.
+Include launch command, controls, data-root policy and known unfinished behavior.
