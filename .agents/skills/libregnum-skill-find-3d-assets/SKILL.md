@@ -1,5 +1,5 @@
 ---
-name: skill-find-3d-assets
+name: libregnum-skill-find-3d-assets
 description: Find licensed 3D models, materials and animations for libregnum. Use when searching free props, characters or environments.
 ---
 
@@ -23,7 +23,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 2. Search current Kenney, Quaternius and Poly Haven asset pages. Compare direct links, licenses, formats, size and material/rig requirements.
 3. Verify the exact downloadable pack's license and contents. Site code/logos and third-party assets can have different terms from a site's primary assets.
 4. Prefer self-contained GLB or OBJ with all sidecars. If only authoring files exist, export supported glTF/OBJ and record tool version/settings and changes.
-5. Use [asset intake](../skill-import-assets/SKILL.md). Preserve texture/buffer paths; never flatten dependent model files.
+5. Use [asset intake](../libregnum-skill-import-assets/SKILL.md). Preserve texture/buffer paths; never flatten dependent model files.
 6. Load via grl_model_new_from_file in a graphics context. Check material appearance, scale, orientation, collider separation and animation compatibility; report unsupported features.
 
 ## Output Format

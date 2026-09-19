@@ -13,6 +13,8 @@ It had no local skills/roles, reproducible media intake or game test cases.
   systems, asset discovery/intake/loading and a game brief.
 - Added eleven focused skills and six portable role documents under .agents/;
   root AGENTS.md routes work to them without assuming tool-specific registration.
+  All skill names and directories use the =libregnum-= prefix; the starter
+  validator enforces that namespace and matching frontmatter/directory names.
 - Added a standard-library Python importer with source/license evidence, archive
   and member SHA-256 pins, selected ZIP/direct-file intake, bounded size,
   traversal/symlink protection, per-pack atomic publication and verification.

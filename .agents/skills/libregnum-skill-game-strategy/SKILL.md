@@ -1,5 +1,5 @@
 ---
-name: skill-game-strategy
+name: libregnum-skill-game-strategy
 description: Build libregnum tycoon, idle and deckbuilder games. Use for economies, cards, offline progress or deterministic simulation.
 ---
 
@@ -23,7 +23,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 2. Define stable IDs, units, time source, deterministic seeds and save versions. Compose final deckbuilder templates rather than subclassing them.
 3. Implement one complete loop: producer/consumer, draw/play/discard, or earn/buy/prestige. For racing-2d use ordered checkpoints and explicit vehicle units.
 4. Test domain failures: insufficient funds, occupied tiles, card-zone ownership, reshuffle, score ties, clock rollback and offline rewards applied once.
-5. Use [save and test](../skill-game-save-test/SKILL.md) for migration and replay checks.
+5. Use [save and test](../libregnum-skill-game-save-test/SKILL.md) for migration and replay checks.
 6. Check UI readability, keyboard/controller focus and fast/paused simulation separately from rule tests.
 
 ## Output Format

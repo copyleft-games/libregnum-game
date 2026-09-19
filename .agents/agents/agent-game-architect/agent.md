@@ -10,8 +10,8 @@ portable role document, not a tool-specific agent registration.
 
 ## Skills
 
-- [skill-game-bootstrap](../../skills/skill-game-bootstrap/SKILL.md) — load when this part of the task applies.
-- [skill-game-systems](../../skills/skill-game-systems/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-bootstrap](../../skills/libregnum-skill-game-bootstrap/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-systems](../../skills/libregnum-skill-game-systems/SKILL.md) — load when this part of the task applies.
 
 ## Tools
 

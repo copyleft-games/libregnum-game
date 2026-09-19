@@ -1,5 +1,5 @@
 ---
-name: skill-game-shooter
+name: libregnum-skill-game-shooter
 description: Build libregnum shooters, twin-stick games and shmups. Use for aiming, projectiles, waves or damage rules.
 ---
 

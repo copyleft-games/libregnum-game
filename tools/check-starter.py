@@ -17,7 +17,7 @@ def check():
         text = path.read_text()
         # Deliberately constrain this repo to YAML's plain single-line scalar subset.
         match = re.match(r"\A---\nname: ([a-z0-9-]+)\ndescription: ([^\n]+)\n---\n", text)
-        if not match or match[1] != path.parent.name or not match[2].strip():
+        if not match or not match[1].startswith("libregnum-") or match[1] != path.parent.name or not match[2].strip():
             errors.append(f"invalid skill metadata: {path.relative_to(ROOT)}")
         elif ": " in match[2] or " #" in match[2] or match[2][0] in "[]{}&*!|>'\"%@`":
             errors.append(f"description must use the supported plain YAML scalar subset: {path}")

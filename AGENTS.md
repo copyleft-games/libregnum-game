@@ -4,17 +4,17 @@
 
 Start with [getting started](docs/getting-started.org) and [genre recipes](docs/genres.org).
 Read [.agents/README.md](.agents/README.md) to select a focused skill or role.
-Skills live in `.agents/skills/skill-*/SKILL.md`; portable role definitions live
+Skills live in `.agents/skills/libregnum-skill-*/SKILL.md`; portable role definitions live
 in `.agents/agents/agent-*/agent.md`. Read the relevant file explicitly when your
 tool does not discover it automatically. These files do not authorize automatic
 sub-agent spawning or select a model.
 
-- New game: `skill-game-bootstrap`, then the matching platformer, top-down,
+- New game: `libregnum-skill-game-bootstrap`, then the matching platformer, top-down,
   shooter, 3D or strategy skill. The launcher accepts `--genre` and `--list-genres`.
-- ECS/input/UI/audio/YAML: `skill-game-systems` and [system recipes](docs/game-systems.org).
-- Persistence/checks: `skill-game-save-test`.
-- Public/free assets: `skill-find-2d-assets` or `skill-find-3d-assets`, followed
-  by `skill-import-assets`. Follow [asset conventions](docs/assets.org).
+- ECS/input/UI/audio/YAML: `libregnum-skill-game-systems` and [system recipes](docs/game-systems.org).
+- Persistence/checks: `libregnum-skill-game-save-test`.
+- Public/free assets: `libregnum-skill-find-2d-assets` or `libregnum-skill-find-3d-assets`, followed
+  by `libregnum-skill-import-assets`. Follow [asset conventions](docs/assets.org).
 - Keep third-party media under `data/assets/<pack>/` with a manifest entry,
   SHA-256 pins, license text, provenance and generated credits. Preserve model
   sidecar paths. Never assume that free download means permission to ship.

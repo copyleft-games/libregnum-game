@@ -10,8 +10,8 @@ portable role document, not a tool-specific agent registration.
 
 ## Skills
 
-- [skill-game-3d](../../skills/skill-game-3d/SKILL.md) — load when this part of the task applies.
-- [skill-find-3d-assets](../../skills/skill-find-3d-assets/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-3d](../../skills/libregnum-skill-game-3d/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-find-3d-assets](../../skills/libregnum-skill-find-3d-assets/SKILL.md) — load when this part of the task applies.
 
 ## Tools
 

@@ -1,5 +1,5 @@
 ---
-name: skill-game-systems
+name: libregnum-skill-game-systems
 description: Integrate libregnum ECS, input, UI, audio and YAML content. Use when adding common game systems or engine extensions.
 ---
 
@@ -23,7 +23,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 2. Trace one operation through its owner and callers. Record ownership, initialization order, thread/context requirements and error paths.
 3. Implement the smallest integrated behavior; separate rules from presentation. For YAML, register types before loading and use a real engine schema/example.
 4. Add tests for malformed data, destroyed targets, missing input, or failed loads. Keep ordinary tests independent of display/audio/network.
-5. Exercise device/context paths explicitly. Use [asset intake](../skill-import-assets/SKILL.md) when loading external media.
+5. Exercise device/context paths explicitly. Use [asset intake](../libregnum-skill-import-assets/SKILL.md) when loading external media.
 6. For a missing reusable capability, change the owning libregnum module with source/header/build/tests/docs, commit its submodule first and then the parent gitlink.
 
 ## Output Format

@@ -1,5 +1,5 @@
 ---
-name: skill-game-bootstrap
+name: libregnum-skill-game-bootstrap
 description: Choose and customize a libregnum game starter. Use when starting a new game or choosing its template.
 ---
 

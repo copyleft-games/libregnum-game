@@ -5,20 +5,22 @@ its actual build/data conventions. Skills use `SKILL.md` frontmatter; roles
 are portable Markdown documents. Agent loading is tool-dependent: explicitly
 ask your assistant to read a role file when automatic discovery is unavailable.
 No global installation, model choice, or automatic delegation is required.
+All project skill names and matching directories start with `libregnum-`
+(for example, `libregnum-skill-game-bootstrap`).
 
 | Task | Skill |
 |------|-------|
-| Start a game and choose its template | [Bootstrap](skills/skill-game-bootstrap/SKILL.md) |
-| Jumping, level collision, camera | [Platformer](skills/skill-game-platformer/SKILL.md) |
-| Exploration, NPCs, inventory | [Top-down](skills/skill-game-top-down/SKILL.md) |
-| Aiming, projectiles, waves | [Shooter](skills/skill-game-shooter/SKILL.md) |
-| FPS, third-person, 3D racing | [3D game](skills/skill-game-3d/SKILL.md) |
-| Tycoon, cards, idle, simulation | [Strategy](skills/skill-game-strategy/SKILL.md) |
-| ECS, input, UI, sound, YAML | [Systems](skills/skill-game-systems/SKILL.md) |
-| Persistence and verification | [Save/test](skills/skill-game-save-test/SKILL.md) |
-| Public/free 2D art, UI and audio | [Find 2D assets](skills/skill-find-2d-assets/SKILL.md) |
-| Public/free models and materials | [Find 3D assets](skills/skill-find-3d-assets/SKILL.md) |
-| Download, validate, credit assets | [Intake](skills/skill-import-assets/SKILL.md) |
+| Start a game and choose its template | [Bootstrap](skills/libregnum-skill-game-bootstrap/SKILL.md) |
+| Jumping, level collision, camera | [Platformer](skills/libregnum-skill-game-platformer/SKILL.md) |
+| Exploration, NPCs, inventory | [Top-down](skills/libregnum-skill-game-top-down/SKILL.md) |
+| Aiming, projectiles, waves | [Shooter](skills/libregnum-skill-game-shooter/SKILL.md) |
+| FPS, third-person, 3D racing | [3D game](skills/libregnum-skill-game-3d/SKILL.md) |
+| Tycoon, cards, idle, simulation | [Strategy](skills/libregnum-skill-game-strategy/SKILL.md) |
+| ECS, input, UI, sound, YAML | [Systems](skills/libregnum-skill-game-systems/SKILL.md) |
+| Persistence and verification | [Save/test](skills/libregnum-skill-game-save-test/SKILL.md) |
+| Public/free 2D art, UI and audio | [Find 2D assets](skills/libregnum-skill-find-2d-assets/SKILL.md) |
+| Public/free models and materials | [Find 3D assets](skills/libregnum-skill-find-3d-assets/SKILL.md) |
+| Download, validate, credit assets | [Intake](skills/libregnum-skill-import-assets/SKILL.md) |
 
 | Role | Focus |
 |------|-------|

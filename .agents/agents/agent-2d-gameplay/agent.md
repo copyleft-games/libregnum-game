@@ -10,10 +10,10 @@ portable role document, not a tool-specific agent registration.
 
 ## Skills
 
-- [skill-game-platformer](../../skills/skill-game-platformer/SKILL.md) — load when this part of the task applies.
-- [skill-game-top-down](../../skills/skill-game-top-down/SKILL.md) — load when this part of the task applies.
-- [skill-game-shooter](../../skills/skill-game-shooter/SKILL.md) — load when this part of the task applies.
-- [skill-find-2d-assets](../../skills/skill-find-2d-assets/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-platformer](../../skills/libregnum-skill-game-platformer/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-top-down](../../skills/libregnum-skill-game-top-down/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-game-shooter](../../skills/libregnum-skill-game-shooter/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-find-2d-assets](../../skills/libregnum-skill-find-2d-assets/SKILL.md) — load when this part of the task applies.
 
 ## Tools
 

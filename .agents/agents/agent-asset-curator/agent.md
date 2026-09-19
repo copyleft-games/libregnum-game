@@ -10,9 +10,9 @@ portable role document, not a tool-specific agent registration.
 
 ## Skills
 
-- [skill-find-2d-assets](../../skills/skill-find-2d-assets/SKILL.md) — load when this part of the task applies.
-- [skill-find-3d-assets](../../skills/skill-find-3d-assets/SKILL.md) — load when this part of the task applies.
-- [skill-import-assets](../../skills/skill-import-assets/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-find-2d-assets](../../skills/libregnum-skill-find-2d-assets/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-find-3d-assets](../../skills/libregnum-skill-find-3d-assets/SKILL.md) — load when this part of the task applies.
+- [libregnum-skill-import-assets](../../skills/libregnum-skill-import-assets/SKILL.md) — load when this part of the task applies.
 
 ## Tools
 

@@ -1,5 +1,5 @@
 ---
-name: skill-game-platformer
+name: libregnum-skill-game-platformer
 description: Build libregnum platformers with movement, collision and camera tests. Use for side-scrolling games or jumping mechanics.
 ---
 
@@ -24,7 +24,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 3. Implement collision hooks against a small level, spawn, exit and restart. Chain parent hooks where required by the template implementation.
 4. Add buffered jump/coyote-time and wall movement only when needed. Keep draw_world and draw_ui separate.
 5. Test floors, ceilings, corners, ledge departure, respawn and timestep boundaries. Manually check jump feel, camera and pixel scaling.
-6. Use [2D asset search](../skill-find-2d-assets/SKILL.md) when replacing primitive art; retain collision dimensions independently.
+6. Use [2D asset search](../libregnum-skill-find-2d-assets/SKILL.md) when replacing primitive art; retain collision dimensions independently.
 
 ## Output Format
 

@@ -1,5 +1,5 @@
 ---
-name: skill-game-3d
+name: libregnum-skill-game-3d
 description: Build libregnum first-person, third-person and racing scenes. Use for 3D cameras, model integration or vehicle prototypes.
 ---
 
@@ -21,7 +21,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 
 1. Read [genre recipes](../../../docs/genres.org) and the FPS, third-person or racing-3d header. Inspect the corresponding game-*-demo.c in deps/libregnum/examples/.
 2. Define axes, world scale, player/collider dimensions and camera conventions. Build a floor and one interaction before a large world.
-3. Use [3D asset search](../skill-find-3d-assets/SKILL.md). Load models after context startup and release them before window shutdown.
+3. Use [3D asset search](../libregnum-skill-find-3d-assets/SKILL.md). Load models after context startup and release them before window shutdown.
 4. Keep colliders independent of mesh detail. Validate materials and animation clips in-game rather than inferring support from glTF recognition.
 5. Test grounding, camera obstruction, reset and simulation rules. For racing, test ordered checkpoints and backwards start-line crossing.
 6. Exercise mouse capture, focus restoration, near clipping and frame time on target hardware.

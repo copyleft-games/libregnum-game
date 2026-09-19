@@ -1,5 +1,5 @@
 ---
-name: skill-import-assets
+name: libregnum-skill-import-assets
 description: Download and verify pinned game asset packs. Use to import ZIP/direct files, preserve licenses or generate credits.
 ---
 

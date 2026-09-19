@@ -1,5 +1,5 @@
 ---
-name: skill-game-top-down
+name: libregnum-skill-game-top-down
 description: Build top-down libregnum adventures and RPGs. Use for tile movement, interactions, quests or inventories.
 ---
 
@@ -24,7 +24,7 @@ Load only the references relevant to the task. Paths in commands are repository-
 3. Build one room, door and NPC using input actions. Connect dialog, quest and inventory modules only as the loop needs them.
 4. Separate walkability and interaction tests from rendering. Cover diagonal movement, blocked cells, out-of-range interaction and full inventory.
 5. Apply [game systems](../../../docs/game-systems.org) to state transitions and persistence. Test quest progress after save/reload.
-6. Import art using [2D asset search](../skill-find-2d-assets/SKILL.md), then check layer order, hitboxes and text readability.
+6. Import art using [2D asset search](../libregnum-skill-find-2d-assets/SKILL.md), then check layer order, hitboxes and text readability.
 
 ## Output Format
 

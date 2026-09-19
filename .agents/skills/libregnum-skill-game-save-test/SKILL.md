@@ -1,5 +1,5 @@
 ---
-name: skill-game-save-test
+name: libregnum-skill-game-save-test
 description: Test game rules and persistence with libregnum. Use for save/load, migrations, deterministic behavior or release verification.
 ---
 
